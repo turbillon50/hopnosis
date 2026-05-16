@@ -4,22 +4,33 @@
    ============================================================ */
 
 :root {
-  --bg: #131313;
-  --bg-deep: #0e0e0e;
-  --surface-low: #1c1b1b;
-  --surface: #201f1f;
-  --surface-high: #2a2a2a;
-  --surface-highest: #353534;
-  --on-bg: #e5e2e1;
-  --on-variant: #d0c5af;
-  --outline: #99907c;
-  --outline-variant: #4d4635;
+  /* — Foundation: deep matte black + warm undertone — */
+  --bg: #0f0d0c;
+  --bg-deep: #080706;
+  --surface-low: #1a1614;
+  --surface: #1f1a17;
+  --surface-high: #2a231e;
+  --surface-highest: #35302a;
+  --on-bg: #ece8e3;
+  --on-variant: #c9bfa8;
+  --outline: #8a8170;
+  --outline-variant: #423b30;
+
+  /* — Primary: polished gold — */
   --primary: #f2ca50;
   --primary-container: #d4af37;
   --primary-dim: #e9c349;
   --primary-deep: #8A6D3B;
-  --on-primary: #3c2f00;
+  --on-primary: #2a1f00;
   --highlight: #FBF5B7;
+
+  /* — Mystical accents (sutiles, por categoría) — */
+  --mystic-violet: #9b6bff;     /* subconsciente */
+  --aurora-emerald: #5dd4a8;    /* equilibrio */
+  --crimson-rose: #e76f8f;      /* transformación */
+  --astral-indigo: #7a8ee8;     /* mente */
+  --amber-warm: #f2ca50;        /* consciente */
+
   --danger: #ffb4ab;
 }
 
