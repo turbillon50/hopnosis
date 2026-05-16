@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#131313" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="Hypnos Prime" />
+<meta name="description" content="Hypnos Prime — Spotify de la hipnosis. Reprograma tu mente y transforma tu realidad." />
+<title>HYPNOS PRIME · Demo</title>
+<link rel="manifest" href="manifest.webmanifest" />
+<link rel="icon" type="image/svg+xml" href="assets/icons/icon-192.svg" />
+<link rel="apple-touch-icon" href="assets/icons/icon-192.svg" />
+<link rel="stylesheet" href="assets/css/styles.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..700&family=Manrope:wght@300..800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: {
+      extend: {
+        colors: {
+          background: '#131313',
+          surface: '#201f1f',
+          'surface-low': '#1c1b1b',
+          'surface-high': '#2a2a2a',
+          primary: '#f2ca50',
+          'primary-container': '#d4af37',
+          'on-primary': '#3c2f00',
+          'on-surface': '#e5e2e1',
+          'on-variant': '#d0c5af',
+          outline: '#99907c',
+          'outline-variant': '#4d4635',
+        }
+      }
+    }
+  };
+</script>
+</head>
+<body class="bg-background text-on-surface min-h-screen">
+
+  <!-- ============ SPLASH ============ -->
+  <div id="splash" class="fixed inset-0 z-[200] bg-background flex flex-col items-center justify-center">
+    <img src="assets/icons/logo.svg" class="w-32 h-32 sm:w-40 sm:h-40 breathe" alt="Hypnos Prime"/>
+    <h1 class="font-headline text-2xl tracking-[0.4em] uppercase gold-text mt-6">Hypnos</h1>
+    <span class="font-label text-[10px] mt-2 text-on-variant tracking-[0.5em] opacity-70">PRIME</span>
+  </div>
+
+  <!-- ============ WELCOME ============ -->
+  <main id="view-welcome" class="view-flex relative z-10 min-h-screen flex-col items-center justify-between px-6 py-12 max-w-md mx-auto">
+    <div class="fixed inset-0 pointer-events-none -z-10">
+      <div class="orb" style="background:#f2ca50;width:500px;height:500px;top:-10%;right:-10%;"></div>
+      <div class="orb" style="background:#f2ca50;width:500px;height:500px;bottom:-10%;left:-10%;"></div>
+    </div>
+
+    <div class="flex-1 flex flex-col items-center justify-center space-y-8 w-full pt-8">
+      <div class="relative w-60 h-60 sm:w-72 sm:h-72 flex items-center justify-center">
+        <img src="assets/icons/logo.svg" class="w-full h-full breathe" alt="" />
+      </div>
+      <div class="text-center space-y-3">
+        <h1 class="font-headline text-3xl tracking-[0.3em] uppercase gold-text">HYPNOS</h1>
+        <span class="block font-label text-[11px] tracking-[0.7em] gold-text">PRIME</span>
+        <p class="font-italic text-[color:var(--on-variant)] opacity-80 max-w-[280px] mx-auto leading-relaxed text-sm pt-4">
+          Reprograma tu mente, transforma tu realidad.
+        </p>
+      </div>
+    </div>
+
+    <div class="w-full space-y-3 pt-8 pb-2">
+      <button id="enterBtn" class="gold-fill w-full py-4 rounded-full font-label text-[11px] gold-glow active:scale-95 transition">
+        INGRESAR
+      </button>
+      <button id="registerBtn" class="gilded-border w-full py-4 rounded-full font-label text-[11px] text-[color:var(--primary)] active:scale-95 transition bg-transparent">
+        REGISTRARSE
+      </button>
+      <div class="text-center pt-4">
+        <button id="forgotBtn" class="font-italic text-[12px] text-[color:var(--primary)] hover:opacity-70 transition">
+          ¿Olvidaste tu contraseña?
+        </button>
+      </div>
+    </div>
+
+    <div class="w-full flex justify-center items-center gap-2 opacity-50 pt-6">
+      <span class="h-px w-8 bg-[color:var(--outline-variant)]"></span>
+      <span class="font-label text-[10px] text-[color:var(--on-variant)]">ELEVANDO LA CONSCIENCIA</span>
+      <span class="h-px w-8 bg-[color:var(--outline-variant)]"></span>
+    </div>
+  </main>
+
+  <!-- ============ APP SHELL (todas las vistas internas) ============ -->
+  <div id="appShell">
+    <header id="topBar" class="sticky top-0 z-40 flex justify-between items-center px-6 py-4 bg-background/80 backdrop-blur-xl border-b border-[color:var(--outline-variant)]/30">
+      <a href="#/home" class="flex items-center gap-2 group">
+        <img src="assets/icons/logo.svg" class="w-7 h-7" alt="" />
+        <h1 class="font-headline text-base tracking-[0.3em] uppercase gold-text">HYPNOS</h1>
+      </a>
+      <button id="installBtn" hidden class="px-3 py-1.5 rounded-full gilded-border text-[color:var(--primary)] font-label text-[10px]">INSTALAR</button>
+      <div class="w-9 h-9 rounded-full gilded-border flex items-center justify-center">
+        <span class="material-symbols-outlined text-[color:var(--primary)] text-[20px]">person</span>
+      </div>
+    </header>
+
+    <!-- ============ HOME ============ -->
+    <section id="view-home" class="view px-6 pt-6 pb-32 max-w-lg mx-auto flex flex-col gap-10">
+      <div id="home-content"></div>
+    </section>
+
+    <!-- ============ LIBRARY ============ -->
+    <section id="view-library" class="view px-6 pt-6 pb-32 max-w-lg mx-auto">
+      <div id="library-content"></div>
+    </section>
+
+    <!-- ============ SEARCH ============ -->
+    <section id="view-search" class="view px-6 pt-6 pb-32 max-w-lg mx-auto">
+      <div id="search-content"></div>
+    </section>
+
+    <!-- ============ SETTINGS ============ -->
+    <section id="view-settings" class="view px-6 pt-6 pb-32 max-w-lg mx-auto">
+      <div id="settings-content"></div>
+    </section>
+  </div>
+
+  <!-- ============ PLAYER (full-screen) ============ -->
+  <section id="view-player" class="view fixed inset-0 z-50 bg-background overflow-y-auto"></section>
+
+  <!-- ============ MINI PLAYER ============ -->
+  <div id="miniPlayer" class="mini-player max-w-lg mx-auto"></div>
+
+  <!-- ============ BOTTOM NAV ============ -->
+  <nav id="bottomNav" class="fixed bottom-0 left-0 w-full z-50 pb-safe">
+    <div class="max-w-lg mx-auto flex justify-around items-center h-20 px-4 bg-[#0e0e0e]/95 backdrop-blur-2xl border-t border-[color:var(--primary-container)]/15 rounded-t-2xl"
+         style="box-shadow: 0 -8px 28px rgba(0,0,0,0.5), 0 -1px 0 rgba(212,175,55,0.08);">
+      <button class="nav-btn flex flex-col items-center justify-center transition" data-view="home">
+        <span class="material-symbols-outlined">home</span>
+        <span class="font-label text-[9px] mt-1">INICIO</span>
+        <span class="dot"></span>
+      </button>
+      <button class="nav-btn flex flex-col items-center justify-center transition" data-view="library">
+        <span class="material-symbols-outlined">library_music</span>
+        <span class="font-label text-[9px] mt-1">BIBLIOTECA</span>
+        <span class="dot"></span>
+      </button>
+      <button class="nav-btn flex flex-col items-center justify-center transition" data-view="search">
+        <span class="material-symbols-outlined">search</span>
+        <span class="font-label text-[9px] mt-1">EXPLORAR</span>
+        <span class="dot"></span>
+      </button>
+      <button class="nav-btn flex flex-col items-center justify-center transition" data-view="settings">
+        <span class="material-symbols-outlined">settings</span>
+        <span class="font-label text-[9px] mt-1">AJUSTES</span>
+        <span class="dot"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Toast -->
+  <div id="toast" class="toast"></div>
+
+  <script type="module" src="assets/js/app.js"></script>
+</body>
+</html>
