@@ -1,5 +1,5 @@
 /* Hypnos Prime — Service Worker */
-const CACHE = 'hypnos-prime-v1';
+const CACHE = 'hypnos-prime-v2';
 const CORE = [
   './',
   './index.html',
@@ -15,6 +15,11 @@ const CORE = [
   './assets/icons/chakra-subconsciente.svg',
   './assets/icons/chakra-equilibrio.svg',
   './assets/icons/chakra-transformacion.svg',
+  './assets/img/sessions/portal.webp',
+  './assets/img/sessions/abundance.webp',
+  './assets/img/sessions/moon.webp',
+  './assets/img/sessions/phoenix.webp',
+  './assets/img/sessions/focus.webp',
 ];
 
 self.addEventListener('install', (e) => {

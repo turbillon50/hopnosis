@@ -18,7 +18,8 @@ const SESSIONS = [
     carrier: 110, beat: 4.5,            // delta/theta — transición profunda
     padRoot: 110, padIntervals: [1, 1.5, 1.78],
     padLevel: 0.14, noiseLevel: 0.05,
-    accent: '#f2ca50',
+    accent: '#9b6bff',
+    cover: 'assets/img/sessions/portal.webp',
   },
   {
     id: 'descubrimiento-abundancia',
@@ -31,7 +32,8 @@ const SESSIONS = [
     carrier: 174, beat: 7.83,            // Schumann ~ alfa
     padRoot: 130.8, padIntervals: [1, 1.5, 2],
     padLevel: 0.13, noiseLevel: 0.04,
-    accent: '#e9c349',
+    accent: '#f2ca50',
+    cover: 'assets/img/sessions/abundance.webp',
   },
   {
     id: 'sueno-profundo',
@@ -44,7 +46,8 @@ const SESSIONS = [
     carrier: 96, beat: 2.5,              // delta puro
     padRoot: 96, padIntervals: [1, 1.5, 1.78],
     padLevel: 0.16, noiseLevel: 0.06,
-    accent: '#bcb77e',
+    accent: '#7a8ee8',
+    cover: 'assets/img/sessions/moon.webp',
   },
   {
     id: 'enfoque-flow',
@@ -57,7 +60,8 @@ const SESSIONS = [
     carrier: 200, beat: 14,              // beta — alerta
     padRoot: 220, padIntervals: [1, 1.5, 1.68],
     padLevel: 0.10, noiseLevel: 0.03,
-    accent: '#eec98f',
+    accent: '#5dd4a8',
+    cover: 'assets/img/sessions/focus.webp',
   },
   {
     id: 'sana-relacion',
@@ -70,7 +74,8 @@ const SESSIONS = [
     carrier: 136.1, beat: 6,             // theta — apertura emocional
     padRoot: 136.1, padIntervals: [1, 1.5, 1.78],
     padLevel: 0.13, noiseLevel: 0.04,
-    accent: '#ccb06c',
+    accent: '#e76f8f',
+    cover: 'assets/img/sessions/moon.webp',
   },
   {
     id: 'transformacion-radical',
@@ -83,7 +88,8 @@ const SESSIONS = [
     carrier: 256, beat: 10,              // alpha
     padRoot: 128, padIntervals: [1, 1.5, 1.78],
     padLevel: 0.12, noiseLevel: 0.04,
-    accent: '#d4af37',
+    accent: '#e76f8f',
+    cover: 'assets/img/sessions/phoenix.webp',
   },
   {
     id: 'meditacion-amanecer',
@@ -96,7 +102,8 @@ const SESSIONS = [
     carrier: 174, beat: 10,
     padRoot: 174, padIntervals: [1, 1.5, 2],
     padLevel: 0.11, noiseLevel: 0.03,
-    accent: '#e1c37d',
+    accent: '#f2ca50',
+    cover: 'assets/img/sessions/abundance.webp',
   },
 ];
 
@@ -197,7 +204,7 @@ function navigate(view, param) {
 
 // ---------- Render: Home ----------
 function renderHome() {
-  const featured = SESSIONS[1]; // Descubrimiento
+  const featured = SESSIONS[0]; // Reprogramación Subconsciente (portal)
   $('#home-content').innerHTML = `
     <section>
       <h2 class="font-headline text-3xl">Hola, <span class="gold-text">Buscador</span></h2>
@@ -205,20 +212,22 @@ function renderHome() {
     </section>
 
     <section class="relative">
-      <div class="glass rounded-2xl p-5 sm:p-7 gilded-border relative overflow-hidden">
-        <div class="orb" style="background:#f2ca50; width:200px; height:200px; right:-60px; top:-60px;"></div>
-        <div class="flex items-center gap-5 relative z-10">
-          <div class="flex-1">
-            <span class="font-label text-[10px] text-[color:var(--primary)]">${featured.badge}</span>
-            <h3 class="font-headline text-2xl text-[color:var(--primary)] mt-2 leading-tight">${escapeHtml(featured.title)}</h3>
-            <p class="text-sm text-[color:var(--on-variant)] opacity-80 mt-2 hidden sm:block">${escapeHtml(featured.description)}</p>
-            <button data-play="${featured.id}" class="gold-fill mt-5 px-6 py-2.5 rounded-full font-label text-[11px] gold-glow active:scale-95 transition">
-              Escuchar ahora
-            </button>
+      <div class="glass rounded-2xl gilded-border relative overflow-hidden">
+        <div class="relative h-48 sm:h-56 overflow-hidden">
+          <img src="${featured.cover}" class="absolute inset-0 w-full h-full object-cover scale-110" alt=""/>
+          <div class="absolute inset-0" style="background: linear-gradient(180deg, transparent 0%, rgba(15,13,12,0.55) 60%, rgba(15,13,12,0.95) 100%);"></div>
+          <div class="absolute top-3 left-4 flex items-center gap-2">
+            <span class="font-label text-[9px] text-[color:var(--primary)] bg-[#0f0d0c]/70 backdrop-blur px-2.5 py-1 rounded-full border border-[color:var(--primary)]/40">${featured.badge}</span>
+            <span class="font-label text-[9px] text-[color:var(--on-variant)] bg-[#0f0d0c]/70 backdrop-blur px-2.5 py-1 rounded-full">${binauralBand(featured.beat)} · ${fmtLong(featured.duration)}</span>
           </div>
-          <div class="w-24 h-24 sm:w-32 sm:h-32 rounded-2xl gilded-border flex items-center justify-center shrink-0">
-            <img src="assets/icons/logo.svg" class="w-3/4 h-3/4 breathe" alt=""/>
-          </div>
+        </div>
+        <div class="p-5 sm:p-6 -mt-12 relative z-10">
+          <h3 class="font-headline text-2xl text-[color:var(--primary)] leading-tight">${escapeHtml(featured.title)}</h3>
+          <p class="text-sm text-[color:var(--on-variant)] opacity-80 mt-2">${escapeHtml(featured.description)}</p>
+          <button data-play="${featured.id}" class="gold-fill mt-5 px-6 py-2.5 rounded-full font-label text-[11px] gold-glow active:scale-95 transition inline-flex items-center gap-2">
+            <span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">play_arrow</span>
+            Escuchar ahora
+          </button>
         </div>
       </div>
     </section>
@@ -260,10 +269,13 @@ function renderHome() {
 function sessionCardHTML(s) {
   return `
     <button data-play="${s.id}" class="glass rounded-xl overflow-hidden text-left lift group">
-      <div class="h-28 relative overflow-hidden" style="background:radial-gradient(120% 80% at 30% 30%, ${s.accent}28, transparent 70%), var(--surface-low);">
-        <img src="assets/icons/logo.svg" class="absolute inset-0 m-auto w-16 h-16 opacity-70 group-hover:opacity-100 transition orbit-slow" alt=""/>
-        <div class="absolute inset-0 bg-gradient-to-t from-[#131313] via-transparent to-transparent"></div>
-        <span class="absolute top-2 left-2 font-label text-[9px] text-[color:var(--primary)] bg-[#131313]/70 backdrop-blur px-2 py-1 rounded-full border border-[color:var(--primary)]/30">${fmtLong(s.duration)}</span>
+      <div class="h-32 relative overflow-hidden">
+        ${s.cover
+          ? `<img src="${s.cover}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt=""/>`
+          : `<div class="absolute inset-0" style="background:radial-gradient(120% 80% at 30% 30%, ${s.accent}33, transparent 70%), var(--surface-low);"></div>
+             <img src="assets/icons/logo.svg" class="absolute inset-0 m-auto w-16 h-16 opacity-70 orbit-slow" alt=""/>`}
+        <div class="absolute inset-0 bg-gradient-to-t from-[#0f0d0c] via-[#0f0d0c]/30 to-transparent"></div>
+        <span class="absolute top-2 left-2 font-label text-[9px] text-[color:var(--primary)] bg-[#0f0d0c]/70 backdrop-blur px-2 py-1 rounded-full border border-[color:var(--primary)]/30">${fmtLong(s.duration)}</span>
       </div>
       <div class="p-3">
         <h4 class="font-headline text-base leading-tight">${escapeHtml(s.title)}</h4>
@@ -277,8 +289,9 @@ function sessionRowHTML(s) {
   const fav = app.favorites.has(s.id);
   return `
     <div class="glass rounded-xl p-3 flex items-center gap-3 lift">
-      <button data-play="${s.id}" class="shrink-0 w-14 h-14 rounded-xl gilded-border flex items-center justify-center relative" style="background:radial-gradient(120% 80% at 30% 30%, ${s.accent}28, transparent 70%);">
-        <span class="material-symbols-outlined text-[color:var(--primary)]" style="font-variation-settings:'FILL' 1;">play_arrow</span>
+      <button data-play="${s.id}" class="shrink-0 w-14 h-14 rounded-xl gilded-border overflow-hidden relative group" style="background:radial-gradient(120% 80% at 30% 30%, ${s.accent}33, transparent 70%);">
+        ${s.cover ? `<img src="${s.cover}" class="absolute inset-0 w-full h-full object-cover opacity-90" alt=""/>` : ''}
+        <span class="absolute inset-0 flex items-center justify-center material-symbols-outlined text-[color:var(--primary)] text-[28px] bg-black/35 opacity-0 group-hover:opacity-100 transition" style="font-variation-settings:'FILL' 1;">play_arrow</span>
       </button>
       <button data-play="${s.id}" class="flex-1 min-w-0 text-left">
         <h4 class="font-headline text-base truncate">${escapeHtml(s.title)}</h4>
@@ -335,9 +348,12 @@ function libraryItemHTML(s) {
   const fav = app.favorites.has(s.id);
   return `
     <article class="glass rounded-xl p-4 flex gap-4 items-center lift">
-      <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-lg gilded-border shrink-0 flex items-center justify-center relative overflow-hidden"
-           style="background:radial-gradient(140% 100% at 30% 30%, ${s.accent}30, transparent 70%);">
-        <img src="assets/icons/logo.svg" class="w-12 h-12 sm:w-14 sm:h-14 opacity-80" alt=""/>
+      <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-lg gilded-border shrink-0 relative overflow-hidden"
+           style="background:radial-gradient(140% 100% at 30% 30%, ${s.accent}33, transparent 70%);">
+        ${s.cover
+          ? `<img src="${s.cover}" class="absolute inset-0 w-full h-full object-cover" alt=""/>`
+          : `<img src="assets/icons/logo.svg" class="absolute inset-0 m-auto w-12 h-12 sm:w-14 sm:h-14 opacity-80" alt=""/>`}
+        <div class="absolute inset-0 bg-gradient-to-tr from-black/40 to-transparent"></div>
       </div>
       <div class="flex-1 min-w-0">
         <div class="flex justify-between items-start gap-2">
@@ -521,6 +537,10 @@ function renderPlayer(sessionId) {
 
   $('#view-player').innerHTML = `
     <div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+      ${s.cover ? `
+        <img src="${s.cover}" class="absolute inset-0 w-full h-full object-cover opacity-25 scale-125" alt="" style="filter: blur(28px);"/>
+        <div class="absolute inset-0" style="background: radial-gradient(60% 40% at 50% 30%, transparent 0%, rgba(15,13,12,0.6) 60%, var(--bg) 100%);"></div>
+      ` : ''}
       <div class="orb" style="background:${s.accent};width:480px;height:480px;left:-120px;top:-120px;opacity:0.10;"></div>
       <div class="orb" style="background:${s.accent};width:520px;height:520px;right:-160px;bottom:-160px;opacity:0.08;"></div>
     </div>
@@ -537,9 +557,16 @@ function renderPlayer(sessionId) {
 
     <main class="flex flex-col items-center justify-between min-h-[calc(100svh-60px)] px-6 pt-8 pb-10 max-w-[480px] mx-auto">
       <div class="w-full aspect-square relative flex items-center justify-center mt-2">
-        <div class="absolute inset-8 rounded-full" style="background:radial-gradient(circle, ${s.accent}20 0%, transparent 70%);"></div>
-        <div class="absolute inset-0 rounded-full border border-[color:var(--outline-variant)]/30 orbit-slow"></div>
-        <img src="assets/icons/logo.svg" id="playerArt" class="w-3/4 h-3/4 ${HypnosAudio.getState().playing && HypnosAudio.getState().session?.id===s.id ? 'breathe' : ''}" alt=""/>
+        <div class="absolute inset-8 rounded-full" style="background:radial-gradient(circle, ${s.accent}30 0%, transparent 70%);"></div>
+        <div class="absolute inset-2 rounded-full border border-[color:var(--outline-variant)]/30 orbit-slow"></div>
+        ${s.cover ? `
+          <div id="playerArt" class="relative w-[78%] aspect-square rounded-full overflow-hidden gilded-border ${HypnosAudio.getState().playing && HypnosAudio.getState().session?.id===s.id ? 'breathe' : ''}" style="box-shadow:0 0 60px ${s.accent}50, inset 0 0 80px rgba(0,0,0,0.4);">
+            <img src="${s.cover}" class="w-full h-full object-cover" alt=""/>
+            <div class="absolute inset-0" style="background:radial-gradient(circle, transparent 40%, rgba(0,0,0,0.45) 100%);"></div>
+          </div>
+        ` : `
+          <img src="assets/icons/logo.svg" id="playerArt" class="w-3/4 h-3/4 ${HypnosAudio.getState().playing && HypnosAudio.getState().session?.id===s.id ? 'breathe' : ''}" alt=""/>
+        `}
       </div>
 
       <div class="text-center w-full mt-8">
@@ -683,8 +710,10 @@ function renderMiniPlayer() {
   const pct = (st.currentTime / s.duration) * 100;
   $('#miniPlayer').innerHTML = `
     <div class="glass gilded-border rounded-xl flex items-center gap-3 p-2 pr-3 overflow-hidden">
-      <button onclick="location.hash='#/player/${s.id}'" class="w-12 h-12 rounded-lg gilded-border flex items-center justify-center shrink-0" style="background:radial-gradient(120% 80% at 30% 30%, ${s.accent}30, transparent 70%);">
-        <img src="assets/icons/logo.svg" class="w-9 h-9 ${st.playing?'breathe':''}" alt=""/>
+      <button onclick="location.hash='#/player/${s.id}'" class="w-12 h-12 rounded-lg gilded-border overflow-hidden shrink-0 relative" style="background:radial-gradient(120% 80% at 30% 30%, ${s.accent}33, transparent 70%);">
+        ${s.cover
+          ? `<img src="${s.cover}" class="absolute inset-0 w-full h-full object-cover ${st.playing?'breathe':''}" alt=""/>`
+          : `<img src="assets/icons/logo.svg" class="absolute inset-0 m-auto w-9 h-9 ${st.playing?'breathe':''}" alt=""/>`}
       </button>
       <button onclick="location.hash='#/player/${s.id}'" class="flex-1 min-w-0 text-left">
         <p class="font-headline text-sm truncate">${escapeHtml(s.title)}</p>
