@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HYPNOS Prime - Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;family=Manrope:wght@200..800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed-dim": "#e5c187",
+                    "on-secondary": "#343206",
+                    "on-tertiary-container": "#594113",
+                    "on-secondary-fixed": "#1e1c00",
+                    "on-secondary-fixed-variant": "#4b481a",
+                    "primary-container": "#d4af37",
+                    "on-surface-variant": "#d0c5af",
+                    "surface-variant": "#353534",
+                    "on-primary": "#3c2f00",
+                    "on-background": "#e5e2e1",
+                    "secondary-fixed": "#eae5a8",
+                    "outline-variant": "#4d4635",
+                    "error-container": "#93000a",
+                    "primary-fixed-dim": "#e9c349",
+                    "inverse-on-surface": "#313030",
+                    "background": "#131313",
+                    "on-error-container": "#ffdad6",
+                    "error": "#ffb4ab",
+                    "surface-container-high": "#2a2a2a",
+                    "inverse-primary": "#735c00",
+                    "secondary": "#cec98e",
+                    "on-tertiary-fixed-variant": "#5b4314",
+                    "secondary-container": "#4b481a",
+                    "tertiary-container": "#d0ae76",
+                    "surface-container-low": "#1c1b1b",
+                    "on-primary-fixed-variant": "#574500",
+                    "surface-dim": "#131313",
+                    "on-primary-container": "#554300",
+                    "on-secondary-container": "#bcb77e",
+                    "surface-container-highest": "#353534",
+                    "on-tertiary-fixed": "#271900",
+                    "secondary-fixed-dim": "#cec98e",
+                    "surface-container": "#201f1f",
+                    "surface-container-lowest": "#0e0e0e",
+                    "tertiary-fixed": "#ffdeaa",
+                    "surface-tint": "#e9c349",
+                    "surface": "#131313",
+                    "primary-fixed": "#ffe088",
+                    "on-error": "#690005",
+                    "inverse-surface": "#e5e2e1",
+                    "outline": "#99907c",
+                    "surface-bright": "#393939",
+                    "on-tertiary": "#422c01",
+                    "primary": "#f2ca50",
+                    "on-surface": "#e5e2e1",
+                    "on-primary-fixed": "#241a00",
+                    "tertiary": "#eec98f"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit": "8px",
+                    "section-gap": "48px",
+                    "gutter": "16px",
+                    "container-margin": "24px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Playfair Display"],
+                    "headline-sm": ["Playfair Display"],
+                    "body-lg": ["Manrope"],
+                    "headline-lg": ["Playfair Display"],
+                    "label-md": ["Manrope"],
+                    "display-lg": ["Playfair Display"],
+                    "body-md": ["Manrope"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "500"}],
+                    "headline-md-mobile": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                    "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                    "headline-sm-mobile": ["18px", {"lineHeight": "24px", "fontWeight": "500"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                    "display-lg": ["56px", {"lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid transparent;
+            border-image: linear-gradient(to bottom right, #8A6D3B, #f2ca50) 1;
+        }
+        .gilded-border {
+            position: relative;
+        }
+        .gilded-border::after {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            padding: 1px;
+            background: linear-gradient(135deg, #8A6D3B 0%, #f2ca50 50%, #8A6D3B 100%);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            border-radius: inherit;
+        }
+        .gold-glow {
+            box-shadow: 0 0 20px rgba(242, 202, 80, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center px-container-margin py-4 w-full z-50 bg-background/80 backdrop-blur-xl docked full-width top-0 border-b border-outline-variant/30 sticky">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary" data-icon="temp_lines">Airplane</span>
+</div>
+<h1 class="font-headline-md text-headline-md-mobile tracking-[0.2em] text-primary uppercase">HYPNOS</h1>
+<div class="w-10 h-10 rounded-full overflow-hidden border border-primary/30">
+<img alt="User Profile Avatar" class="w-full h-full object-cover" data-alt="A professional close-up portrait of a refined man with short dark hair and a neat beard, wearing a tailored charcoal suit against a deep matte black background with subtle gold light flares. The lighting is dramatic and luxurious, emphasizing clarity and wisdom." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGyXKKbNiwboZS-UnFzdU4Wqr7IbspEwifT_5daUUdNMPoTsa3Y1sgIzbqI2PgZ_WpYxZUuSYMYPVGcGHrW0LCtxxH5uRsu7hduOFa_9LgnJwnyi9bOc0f4ivXfDvcT_uz5mZvHc4rR_jS8FlJdsNCA3eoF1edIGQ4cxHzfRwW2bYuHlGZow4lGsPXr8zmAQniJFks2dDRSJxPeIrA5WPOua1WNZSEw608lGQprOC_1q7Gc1wZ4m_Pd_8IA0_ZB0UfcGBqibSrzw7L"/>
+</div>
+</header>
+<main class="px-container-margin py-8 flex flex-col gap-section-gap max-w-lg mx-auto">
+<!-- Welcome Greeting -->
+<section>
+<h2 class="font-headline-lg text-headline-lg mb-1">Hola, Dr. Juan</h2>
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest">Ejemplo Usuario</p>
+</section>
+<!-- Promotional Card -->
+<section class="relative">
+<div class="glass-card p-6 rounded-xl flex flex-col md:flex-row items-center gap-6 overflow-hidden relative group">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/10 blur-[60px] rounded-full -mr-16 -mt-16"></div>
+<div class="flex-1 z-10">
+<h3 class="font-headline-md text-headline-md mb-2 text-primary">Descubrimiento de Abundancia</h3>
+<p class="text-on-surface-variant font-body-md mb-6 leading-relaxed opacity-80">
+                        Descubrimiento de maestro honorio castillo para la abundancia consciente.
+                    </p>
+<button class="bg-gradient-to-r from-primary/80 to-primary text-on-primary font-label-md px-8 py-3 rounded-full hover:opacity-90 transition-opacity uppercase tracking-widest gold-glow">
+                        Escuchar
+                    </button>
+</div>
+<div class="w-32 h-32 md:w-40 md:h-40 relative z-10">
+<img alt="Maestro Honorio Castillo" class="w-full h-full object-cover rounded-xl grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="A portrait of a serene older man with grey hair and a warm smile, wearing an elegant black turtleneck. The background is a soft, deep grey with warm golden bokeh lights. The overall aesthetic is one of prestige, wisdom, and mystical tranquility, fitting a high-end luxury wellness app." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAytduP0d8cRQfj1PjtI1zrlwDnSYpABAma-lj1JTklpF8sAfj2mS2aHLx5JEfdNjQ3HgUc3bit0-llOR7WIJqi-i233krjEVcBibN6mBi2Q2HbaGgI6PIErJS26Z0FWdRnIOQezMvpuH52trgoaCYE59yyT8HVn08BhufreCZ9chna00Dkwv8-zxmCfzGAfS_xkZDSAqGD2nuhqeEkU5pBg9bdMi8-LQ0jpRKOyRaQlkmnwcbr8W05ONcekDo088DD18Mz9xmZhzoj"/>
+</div>
+</div>
+</section>
+<!-- Category Grid -->
+<section>
+<div class="grid grid-cols-3 gap-y-10 gap-x-6 justify-items-center">
+<!-- Mente -->
+<div class="flex flex-col items-center gap-3">
+<div class="w-16 h-16 rounded-2xl glass-card flex items-center justify-center gilded-border hover:scale-105 transition-transform">
+<img alt="Mente" class="w-10 h-10 object-contain" src="https://lh3.googleusercontent.com/aida/ADBb0uh3oB8eQqw9lcyzXot328mWgOuiBGVfTkp8RBvcceBuVe78FvNgj8fyPOclgZLUi0SzvQDNEzty0gHpwHtdCiEXSX9zIzroK6X1B2sDmbsbcUE5kIalH0PhoeHrAC73sEVbNggTl4gDi2cBgvSvH31W3gBPFw8wkRmWpPlvCJaR2xAqeEU63-_EsIdbWYi2-zf4GTB1KF_zZEIZsogM5ArA3McRD3jew_5_mXWUa6Ygwphx_-UxAUB8S4vh"/>
+</div>
+<span class="font-headline-sm text-label-md text-primary uppercase tracking-widest">Mente</span>
+</div>
+<!-- Consciente -->
+<div class="flex flex-col items-center gap-3">
+<div class="w-16 h-16 rounded-2xl glass-card flex items-center justify-center gilded-border hover:scale-105 transition-transform">
+<img alt="Consciente" class="w-10 h-10 object-contain" src="https://lh3.googleusercontent.com/aida/ADBb0ujOu_tgJZNtmgZhNJxKZjO2WjjgkD9cZ1qe4Ky4pai4HRkH-RdVj-mjzk-UKuIC5hGO7r8z8O7QNH8vEaB5_Put6K3qrs8HclhGnq4a2xtWa2CjvLgaTKGqdGS1xEfOc8inGhQ1sI7msda7PD6MWmbsanvuPPjzBeZHIvuyUCViRbMg0x7geebX_f9aBB6uTJYfSY7J42gZIFMrSS6YEim8mY3GpWwWG4GVz03uRP2Hj0pLGXiWn7X9_X0"/>
+</div>
+<span class="font-headline-sm text-label-md text-primary uppercase tracking-widest">Consciente</span>
+</div>
+<!-- Subconsciente -->
+<div class="flex flex-col items-center gap-3">
+<div class="w-16 h-16 rounded-2xl glass-card flex items-center justify-center gilded-border hover:scale-105 transition-transform">
+<img alt="Subconsciente" class="w-10 h-10 object-contain" src="https://lh3.googleusercontent.com/aida/ADBb0ugv7eHZ4CRPWYjqV_zc9R3KvpeEYvE-iTp8TfX4D_di_J6agM7dmfaNsPNP3zVOVODHBuAoMf40ycdyb7rUTR2TQrHsWSUVOetscuyHtkVR5Ws97eD-QrNwZKcFYUILe32NesFJE30q5sQUDHqaT4vpTshevjE3VBkyx8fQf4wArbORmXSkwVMvlWHb6ChcG2vFGbf1ulInPcn9szcmYVZtUnNa_DtkeHHxwM0gZhKHvcby6MKMjCVTd6Ow"/>
+</div>
+<span class="font-headline-sm text-label-md text-primary uppercase tracking-widest text-center">Subconsciente</span>
+</div>
+<!-- Equilibrio -->
+<div class="flex flex-col items-center gap-3">
+<div class="w-16 h-16 rounded-2xl glass-card flex items-center justify-center gilded-border hover:scale-105 transition-transform">
+<img alt="Equilibrio" class="w-10 h-10 object-contain" src="https://lh3.googleusercontent.com/aida/ADBb0uiee7znw0oW4_OAcz_f_cHN3bVaLXip3Cl1v9b0ygtmQ9hAxhtP-yUZAfcIRqO9_ORxyN1YNVaDyIP2nP-nx6wWgW3are2ig6LSzpEz7uBf8hqy0wiupkp87A8IlS-eHtkFDIGyP8Z02yY72rVV7p4hOwQEDNGhvLcyw6gFDi_HUCjSucUSQ8qag-G4odyImSR-AIs34I4T09V7zwVe71-RalT7sR6nnjnDhy6xnycTmKmaYSi9IJOQ1YI"/>
+</div>
+<span class="font-headline-sm text-label-md text-primary uppercase tracking-widest">Equilibrio</span>
+</div>
+<!-- Transformación -->
+<div class="flex flex-col items-center gap-3">
+<div class="w-16 h-16 rounded-2xl glass-card flex items-center justify-center gilded-border hover:scale-105 transition-transform">
+<img alt="Transformación" class="w-10 h-10 object-contain" src="https://lh3.googleusercontent.com/aida/ADBb0ui6U5C4Nf6Gd50O8sdktUEZxURhLaMqtCbc9lgWPFzSNgPwbbxtY0HKWo-TU8sAsW9cdMY7xeTnVPEqXFuMD9_ubhJVve54ZXCDFJY1-aY12rrwztzJRTeTK7zsZDudSMuljikk4rzot0oxm9SIWJvDBSIqZOta23w1zXwnYhUEJ1aBWw8Z25wwM7g4jTfAYyGiuDM5e681MgSc6YNcARTKkaLMehbKqZE1mLjr7SQKkrMhJaV0MmYVO50I"/>
+</div>
+<span class="font-headline-sm text-label-md text-primary uppercase tracking-widest">Transformación</span>
+</div>
+</div>
+</section>
+<!-- Recommended / Master Highlights (Extra Aesthetic Section) -->
+<section class="flex flex-col gap-6">
+<h3 class="font-headline-md text-headline-md text-primary/80 border-l-2 border-primary pl-4">Recomendado para ti</h3>
+<div class="grid grid-cols-2 gap-4">
+<div class="glass-card rounded-xl overflow-hidden group">
+<div class="h-32 bg-surface-container relative">
+<img alt="Meditation Session" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity" data-alt="A serene landscape featuring a golden sunrise over a calm, dark lake. The atmosphere is misty and ethereal, with soft golden light reflecting on the water's surface. This mystical minimalist scene evokes deep peace and awakening, consistent with a luxury wellness aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRI7o1wSkvlSA3rDyH2odJoRAx8PAhLbufkhebnBw39GzEWDo_shjCiDBgPrOYO85I7S6mHORKQYdDAFnKs-Mrj8ICY6IMRkVwyBU0Pm8x8-qFiG3wOjkXJPjHydBIPurVfZEu1Crnu9Ee_N5TTgjBHuXTnwc8BePyapP2048FnITpJ7oHVfVAIgfkevABUZ1QkC87G0EOebKJJCZn7045nH7TlDYevYKoFxnhDS08wXcyDUXFypCeLlHBe8tSLd3YUKeNaObZxDEG"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent"></div>
+</div>
+<div class="p-4">
+<p class="font-label-md text-primary mb-1">20 MIN</p>
+<h4 class="font-headline-sm text-headline-sm-mobile">Sana tu Relación</h4>
+</div>
+</div>
+<div class="glass-card rounded-xl overflow-hidden group">
+<div class="h-32 bg-surface-container relative">
+<img alt="Deep Sleep" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity" data-alt="A night sky filled with millions of bright, tiny stars forming a swirling galaxy shape. The deep black cosmic background is punctuated by golden-hued nebulae. The image is elegant, quiet, and expansive, designed for a meditation app focused on the subconscious." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAoA2H_1vWpBOoL1fLHMAIfX3q_ibEJuRkvMj3oPAoDG7znuA-ftyvb0lCCqXydwJRi9U7WFT6a3CRwEjuOmGMjBQN2uPSTt2rRdAuMmYeC8wQFeq-PckempjAQlJ-Nz5rOQ7uNbbLom5l-cz5VnMQcITEOXbY-Q3DqdSZ43IOA5RJgHQ33wd-7QZAk_cshSiKs7Yj_1GsQusphdTkTZhTO79beyslMVOJIXzdS8QSa-gkPiYLFiAlJPh4VI3ZWYPr_zbeLHjDXP40"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent"></div>
+</div>
+<div class="p-4">
+<p class="font-label-md text-primary mb-1">45 MIN</p>
+<h4 class="font-headline-sm text-headline-sm-mobile">Sueño Profundo</h4>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-20 px-gutter pb-safe bg-surface-container-lowest/90 backdrop-blur-2xl border-t border-primary-container/20 shadow-[0_-4px_20px_rgba(233,195,73,0.1)] rounded-t-xl">
+<!-- Home (Active) -->
+<button class="flex flex-col items-center justify-center text-primary filter drop-shadow-[0_0_8px_rgba(242,202,80,0.4)] scale-90 transition-all duration-200">
+<span class="material-symbols-outlined" data-icon="home" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-md text-label-md mt-1">Inicio</span>
+</button>
+<!-- Library -->
+<button class="flex flex-col items-center justify-center text-outline hover:text-primary-fixed-dim transition-all">
+<span class="material-symbols-outlined" data-icon="library_music">library_music</span>
+<span class="font-label-md text-label-md mt-1">Librería</span>
+</button>
+<!-- Search -->
+<button class="flex flex-col items-center justify-center text-outline hover:text-primary-fixed-dim transition-all">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+<span class="font-label-md text-label-md mt-1">Buscar</span>
+</button>
+<!-- Settings -->
+<button class="flex flex-col items-center justify-center text-outline hover:text-primary-fixed-dim transition-all">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-md text-label-md mt-1">Ajustes</span>
+</button>
+</nav>
+</body></html>

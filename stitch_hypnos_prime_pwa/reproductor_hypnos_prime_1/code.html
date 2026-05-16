@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Hypnos Prime | Reproductor Inmersivo</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary": "#343206",
+                        "on-secondary-fixed": "#1e1c00",
+                        "surface": "#131313",
+                        "on-tertiary-fixed": "#271900",
+                        "on-primary-container": "#554300",
+                        "on-error-container": "#ffdad6",
+                        "primary-fixed-dim": "#e9c349",
+                        "primary": "#f2ca50",
+                        "on-secondary-container": "#bcb77e",
+                        "on-primary-fixed-variant": "#574500",
+                        "on-tertiary": "#422c01",
+                        "on-error": "#690005",
+                        "on-background": "#e5e2e1",
+                        "on-primary-fixed": "#241a00",
+                        "surface-bright": "#393939",
+                        "secondary-fixed": "#eae5a8",
+                        "secondary-container": "#4b481a",
+                        "background": "#131313",
+                        "primary-container": "#d4af37",
+                        "inverse-surface": "#e5e2e1",
+                        "inverse-on-surface": "#313030",
+                        "secondary-fixed-dim": "#cec98e",
+                        "surface-tint": "#e9c349",
+                        "surface-container-lowest": "#0e0e0e",
+                        "outline": "#99907c",
+                        "surface-container": "#201f1f",
+                        "on-surface": "#e5e2e1",
+                        "primary-fixed": "#ffe088",
+                        "inverse-primary": "#735c00",
+                        "surface-dim": "#131313",
+                        "error": "#ffb4ab",
+                        "tertiary-fixed-dim": "#e5c187",
+                        "tertiary-container": "#d0ae76",
+                        "outline-variant": "#4d4635",
+                        "error-container": "#93000a",
+                        "tertiary-fixed": "#ffdeaa",
+                        "surface-variant": "#353534",
+                        "on-secondary-fixed-variant": "#4b481a",
+                        "on-tertiary-container": "#594113",
+                        "on-tertiary-fixed-variant": "#5b4314",
+                        "on-primary": "#3c2f00",
+                        "surface-container-high": "#2a2a2a",
+                        "on-surface-variant": "#d0c5af",
+                        "secondary": "#cec98e",
+                        "tertiary": "#eec98f",
+                        "surface-container-low": "#1c1b1b",
+                        "surface-container-highest": "#353534"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "unit": "8px",
+                        "section-gap": "48px",
+                        "container-margin": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Playfair Display"],
+                        "headline-md": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"],
+                        "body-md": ["Manrope"],
+                        "label-md": ["Manrope"],
+                        "body-lg": ["Manrope"],
+                        "headline-lg": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "500"}],
+                        "display-lg": ["56px", {"lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #131313;
+            color: #e5e2e1;
+            overflow: hidden;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        .gilded-border {
+            border: 1px solid transparent;
+            background: linear-gradient(#131313, #131313) padding-box,
+                        linear-gradient(to right, #8A6D3B, #f2ca50) border-box;
+        }
+        .glow-gold {
+            box-shadow: 0 0 40px rgba(242, 202, 80, 0.15);
+        }
+        .cosmic-grain {
+            background-image: radial-gradient(circle at center, rgba(242, 202, 80, 0.03) 0%, transparent 70%);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-glow {
+            filter: drop-shadow(0 0 8px rgba(242, 202, 80, 0.6));
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md select-none">
+<!-- SIDE NAVIGATION SHELL -->
+<aside class="w-64 h-full fixed left-0 top-0 border-r border-outline-variant bg-surface-container-low flex flex-col py-gutter z-50">
+<div class="px-6 mb-12">
+<h1 class="font-headline-md text-headline-md text-primary tracking-widest uppercase">Hypnos Prime</h1>
+<p class="font-label-md text-label-md text-on-surface-variant opacity-60">Luxury Wellness</p>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="text-on-surface-variant flex items-center gap-3 px-4 py-2 hover:text-primary transition-colors duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-md text-label-md">Inicio</span>
+</a>
+<a class="text-primary font-bold border-l-2 border-primary pl-4 py-2 flex items-center gap-3" href="#">
+<span class="material-symbols-outlined" data-icon="library_music" style="font-variation-settings: 'FILL' 1;">library_music</span>
+<span class="font-label-md text-label-md">Biblioteca</span>
+</a>
+<a class="text-on-surface-variant flex items-center gap-3 px-4 py-2 hover:text-primary transition-colors duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+<span class="font-label-md text-label-md">Explorar</span>
+</a>
+<div class="pt-6 pb-2 px-6">
+<span class="text-[10px] uppercase tracking-[0.2em] text-on-surface-variant opacity-40">Categorías</span>
+</div>
+<a class="text-on-surface-variant flex items-center gap-3 px-4 py-2 hover:text-primary transition-colors duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="psychology">psychology</span>
+<span class="font-label-md text-label-md">Mente</span>
+</a>
+<a class="text-on-surface-variant flex items-center gap-3 px-4 py-2 hover:text-primary transition-colors duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="visibility">visibility</span>
+<span class="font-label-md text-label-md">Consciente</span>
+</a>
+<a class="text-on-surface-variant flex items-center gap-3 px-4 py-2 hover:text-primary transition-colors duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
+<span class="font-label-md text-label-md">Subconsciente</span>
+</a>
+<a class="text-on-surface-variant flex items-center gap-3 px-4 py-2 hover:text-primary transition-colors duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="balance">balance</span>
+<span class="font-label-md text-label-md">Equilibrio</span>
+</a>
+<a class="text-on-surface-variant flex items-center gap-3 px-4 py-2 hover:text-primary transition-colors duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="self_improvement">self_improvement</span>
+<span class="font-label-md text-label-md">Transformación</span>
+</a>
+</nav>
+</aside>
+<!-- TOP NAVIGATION SHELL -->
+<header class="ml-64 flex justify-between items-center px-container-margin py-unit h-16 bg-surface/80 backdrop-blur-xl border-b border-outline-variant fixed top-0 right-0 left-0 z-40">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer" data-icon="arrow_back">arrow_back</span>
+<span class="font-headline-sm text-headline-sm text-primary">Reproducción Actual</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4 text-on-surface-variant">
+<span class="material-symbols-outlined hover:text-primary cursor-pointer" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined hover:text-primary cursor-pointer" data-icon="settings">settings</span>
+</div>
+<div class="w-8 h-8 rounded-full border border-primary/30 overflow-hidden">
+<img alt="Dr. Juan Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYg0rRw_8RnthiV7yV9unSfu-kwz3Azit9exMSo5H4sXtP98HpDdReOrogxSCDbYEN9wFy59N5cq9i0kIS3BZStvgrJo6o6qqGGnlDXYJCXoGdNnNpkmnfeCi656r0bDUtF2ULflRkUU_IJhXdyR2B7kS0SNi-DYyOMqFJp2tw_Z7rwioxv0wU6gl5aNbsRBBHfBYfpoMcGHKtr0aqbyNq0ei5hD9GCGpx2O5TxowYLr1RTvLIGqlMZZiEpLivjCh4B0F5NfzsniU1"/>
+</div>
+</div>
+</header>
+<!-- MAIN CONTENT CANVAS: IMMERSIVE PLAYER -->
+<main class="ml-64 mt-16 h-[calc(100vh-160px)] relative overflow-hidden flex flex-col items-center justify-center cosmic-grain">
+<!-- VISUAL CENTRAL -->
+<div class="relative group mb-12">
+<div class="absolute inset-0 bg-primary/10 blur-[80px] rounded-full scale-150 animate-pulse"></div>
+<div class="relative z-10 w-[420px] h-[420px] flex items-center justify-center">
+<img alt="Hypnos Prime Logo" class="w-full h-full object-contain active-glow drop-shadow-[0_0_25px_rgba(242,202,80,0.3)]" src="https://lh3.googleusercontent.com/aida/ADBb0uic2nshxbVrqo63iy2f-O_YoZVPAoLIQneW_Wekp-4dO9PU5Vxvx2kJx1Y743QeWCqIpY31LDnXcRd1gXPV7rwun1iCIGObZwf0hykmaHorR6dvR8SsZHLDUW7KxVzi6jCWgr-J5CoKJYmyTd-3oymZJo7oTPjJtyQlEu9C5146t9x0hEi5SrTvtdF_LkwZq4vM0xo8K4QE7mTIK2LiyveEvIq4rCVI8uxKDTbuDapqbMGfZuJCpWzz9Bb-"/>
+</div>
+</div>
+<!-- SESSION INFO -->
+<div class="text-center space-y-4 max-w-2xl px-6">
+<h2 class="font-headline-lg text-headline-lg text-on-background tracking-wide">Reprogramación Subconsciente Profunda</h2>
+<p class="font-body-lg text-body-lg text-primary italic font-light">Por Maestro Honorio Castillo</p>
+</div>
+<!-- MAIN PLAYER CONTROLS -->
+<div class="mt-section-gap flex flex-col items-center w-full max-w-3xl px-12">
+<!-- Progress Bar -->
+<div class="w-full space-y-4 mb-10">
+<div class="relative w-full h-1 bg-surface-variant rounded-full overflow-hidden">
+<div class="absolute top-0 left-0 h-full w-2/3 bg-primary glow-gold"></div>
+</div>
+<div class="flex justify-between w-full font-label-md text-label-md text-on-surface-variant opacity-60">
+<span>14:22</span>
+<span>20:00</span>
+</div>
+</div>
+<!-- Buttons -->
+<div class="flex items-center gap-12">
+<button class="text-on-surface-variant hover:text-primary transition-all duration-300">
+<span class="material-symbols-outlined text-4xl" data-icon="shuffle">shuffle</span>
+</button>
+<button class="text-primary hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-5xl" data-icon="skip_previous">skip_previous</span>
+</button>
+<button class="w-24 h-24 rounded-full bg-primary flex items-center justify-center text-on-primary glow-gold hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-6xl" data-icon="pause" style="font-variation-settings: 'FILL' 1;">pause</span>
+</button>
+<button class="text-primary hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-5xl" data-icon="skip_next">skip_next</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-all duration-300">
+<span class="material-symbols-outlined text-4xl" data-icon="repeat">repeat</span>
+</button>
+</div>
+</div>
+</main>
+<!-- FOOTER PLAYER BAR -->
+<footer class="fixed bottom-0 left-64 right-0 h-24 flex items-center justify-between px-container-margin z-50 bg-surface-container-lowest border-t border-primary/20 shadow-[0_-20px_40px_rgba(212,175,55,0.05)]">
+<!-- Left: Current Track (Mini) -->
+<div class="flex items-center gap-4 w-1/4">
+<div class="w-12 h-12 glass-card rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface truncate">Nivel Delta de Inducción</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-widest">En curso</p>
+</div>
+</div>
+<!-- Center: Audio Modes (Cuerpo, Mente, Emoción, Espíritu) -->
+<div class="flex items-center gap-8 bg-surface-container rounded-full px-8 py-2 border border-outline-variant/30">
+<div class="flex flex-col items-center gap-1 group cursor-pointer">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors" data-icon="settings_accessibility">settings_accessibility</span>
+<span class="font-label-md text-[10px] text-on-surface-variant group-hover:text-primary">Cuerpo</span>
+</div>
+<div class="w-px h-6 bg-outline-variant"></div>
+<div class="flex flex-col items-center gap-1 group cursor-pointer text-primary">
+<span class="material-symbols-outlined" data-icon="psychology" style="font-variation-settings: 'FILL' 1;">psychology</span>
+<span class="font-label-md text-[10px]">Mente</span>
+</div>
+<div class="w-px h-6 bg-outline-variant"></div>
+<div class="flex flex-col items-center gap-1 group cursor-pointer">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors" data-icon="favorite">favorite</span>
+<span class="font-label-md text-[10px] text-on-surface-variant group-hover:text-primary">Emoción</span>
+</div>
+<div class="w-px h-6 bg-outline-variant"></div>
+<div class="flex flex-col items-center gap-1 group cursor-pointer">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors" data-icon="diamond">diamond</span>
+<span class="font-label-md text-[10px] text-on-surface-variant group-hover:text-primary">Espíritu</span>
+</div>
+</div>
+<!-- Right: Volume & Extra -->
+<div class="flex items-center gap-6 w-1/4 justify-end">
+<div class="flex items-center gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="volume_up">volume_up</span>
+<div class="w-32 h-1 bg-surface-variant rounded-full">
+<div class="w-3/4 h-full bg-primary rounded-full"></div>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer" data-icon="lyrics">lyrics</span>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer" data-icon="cast">cast</span>
+</div>
+</footer>
+<!-- BACKGROUND TEXTURES -->
+<div class="fixed inset-0 pointer-events-none opacity-20 mix-blend-overlay">
+<div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_30%,_rgba(212,175,55,0.05)_0%,_transparent_50%)]"></div>
+<div class="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_80%_70%,_rgba(212,175,55,0.05)_0%,_transparent_50%)]"></div>
+</div>
+</body></html>

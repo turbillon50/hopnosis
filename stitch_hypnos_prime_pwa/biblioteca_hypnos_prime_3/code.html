@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;family=Manrope:wght@200..800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid transparent;
+            border-image: linear-gradient(to bottom right, #8A6D3B, #f2ca50) 1;
+        }
+        .gilded-border {
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        .gold-glow {
+            box-shadow: 0 0 20px rgba(242, 202, 80, 0.15);
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #131313;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4d4635;
+            border-radius: 10px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary": "#343206",
+                        "on-secondary-fixed": "#1e1c00",
+                        "surface": "#131313",
+                        "on-tertiary-fixed": "#271900",
+                        "on-primary-container": "#554300",
+                        "on-error-container": "#ffdad6",
+                        "primary-fixed-dim": "#e9c349",
+                        "primary": "#f2ca50",
+                        "on-secondary-container": "#bcb77e",
+                        "on-primary-fixed-variant": "#574500",
+                        "on-tertiary": "#422c01",
+                        "on-error": "#690005",
+                        "on-background": "#e5e2e1",
+                        "on-primary-fixed": "#241a00",
+                        "surface-bright": "#393939",
+                        "secondary-fixed": "#eae5a8",
+                        "secondary-container": "#4b481a",
+                        "background": "#131313",
+                        "primary-container": "#d4af37",
+                        "inverse-surface": "#e5e2e1",
+                        "inverse-on-surface": "#313030",
+                        "secondary-fixed-dim": "#cec98e",
+                        "surface-tint": "#e9c349",
+                        "surface-container-lowest": "#0e0e0e",
+                        "outline": "#99907c",
+                        "surface-container": "#201f1f",
+                        "on-surface": "#e5e2e1",
+                        "primary-fixed": "#ffe088",
+                        "inverse-primary": "#735c00",
+                        "surface-dim": "#131313",
+                        "error": "#ffb4ab",
+                        "tertiary-fixed-dim": "#e5c187",
+                        "tertiary-container": "#d0ae76",
+                        "outline-variant": "#4d4635",
+                        "error-container": "#93000a",
+                        "tertiary-fixed": "#ffdeaa",
+                        "surface-variant": "#353534",
+                        "on-secondary-fixed-variant": "#4b481a",
+                        "on-tertiary-container": "#594113",
+                        "on-tertiary-fixed-variant": "#5b4314",
+                        "on-primary": "#3c2f00",
+                        "surface-container-high": "#2a2a2a",
+                        "on-surface-variant": "#d0c5af",
+                        "secondary": "#cec98e",
+                        "tertiary": "#eec98f",
+                        "surface-container-low": "#1c1b1b",
+                        "surface-container-highest": "#353534"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "unit": "8px",
+                        "section-gap": "48px",
+                        "container-margin": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Playfair Display"],
+                        "headline-md": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"],
+                        "body-md": ["Manrope"],
+                        "label-md": ["Manrope"],
+                        "body-lg": ["Manrope"],
+                        "headline-lg": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "500"}],
+                        "display-lg": ["56px", {"lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-surface text-on-surface font-body-md overflow-hidden">
+<!-- Side Navigation Bar -->
+<aside class="w-64 h-screen fixed left-0 top-0 border-r border-outline-variant bg-surface-container-low flex flex-col py-gutter z-50">
+<div class="px-6 mb-10">
+<h1 class="font-headline-md text-headline-md text-primary tracking-widest uppercase">Hypnos Prime</h1>
+<p class="font-label-md text-label-md text-on-surface-variant mt-1 opacity-60">LUXURY WELLNESS</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="text-on-surface-variant flex items-center gap-3 px-4 py-2 hover:text-primary transition-colors duration-300" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-md text-label-md">Inicio</span>
+</a>
+<a class="text-primary font-bold border-l-2 border-primary pl-4 py-2 flex items-center gap-3" href="#">
+<span class="material-symbols-outlined">library_music</span>
+<span class="font-label-md text-label-md">Biblioteca</span>
+</a>
+<a class="text-on-surface-variant flex items-center gap-3 px-4 py-2 hover:text-primary transition-colors duration-300" href="#">
+<span class="material-symbols-outlined">explore</span>
+<span class="font-label-md text-label-md">Explorar</span>
+</a>
+<div class="pt-6 pb-2 px-4">
+<span class="font-label-md text-label-md text-outline uppercase tracking-widest opacity-50">Dimensiones</span>
+</div>
+<a class="text-on-surface-variant flex items-center gap-3 px-4 py-2 hover:text-primary transition-colors duration-300" href="#">
+<span class="material-symbols-outlined">psychology</span>
+<span class="font-label-md text-label-md">Mente</span>
+</a>
+<a class="text-on-surface-variant flex items-center gap-3 px-4 py-2 hover:text-primary transition-colors duration-300" href="#">
+<span class="material-symbols-outlined">visibility</span>
+<span class="font-label-md text-label-md">Consciente</span>
+</a>
+<a class="text-on-surface-variant flex items-center gap-3 px-4 py-2 hover:text-primary transition-colors duration-300" href="#">
+<span class="material-symbols-outlined">auto_awesome</span>
+<span class="font-label-md text-label-md">Subconsciente</span>
+</a>
+<a class="text-on-surface-variant flex items-center gap-3 px-4 py-2 hover:text-primary transition-colors duration-300" href="#">
+<span class="material-symbols-outlined">balance</span>
+<span class="font-label-md text-label-md">Equilibrio</span>
+</a>
+<a class="text-on-surface-variant flex items-center gap-3 px-4 py-2 hover:text-primary transition-colors duration-300" href="#">
+<span class="material-symbols-outlined">self_improvement</span>
+<span class="font-label-md text-label-md">Transformación</span>
+</a>
+</nav>
+<div class="px-4 mt-auto">
+<div class="flex items-center gap-3 p-3 glass-card rounded-xl">
+<img alt="Dr. Juan Profile" class="w-10 h-10 rounded-full border border-primary/30" data-alt="A professional portrait of a distinguished man in his late 40s with salt and pepper hair, wearing a high-end black charcoal turtleneck. The lighting is dramatic and studio-quality, emphasizing textures and luxury. The background is a soft-focus library with a deep, moody atmosphere matching the dark and gold aesthetic of the wellness brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJ75fAtk0UpPdD4KRI_DuqTuZVUxniPUcVxcZwbjZpqX5l_2UFtcUjmNJC-0Ilij9LMj5mzvxEGVdgHM_UbNEIoBbjby5K0U2idgBvmRmSgIwNRuJDl58CMa7F0tgZhu3eZN59wSdD-ZcHXR30xKKHUqCGfWNe9yqwmhdmgs0lygRA0AaD75XJ_qqyKBk6lNXl7ZrXMPHUt7EzURLJh8QU2oouZCp59uHfkJZui1x8ljBvfmaMg1zb6E98llePo7vOd-e2WZbC_Jkk"/>
+<div>
+<p class="font-label-md text-label-md font-bold text-on-surface">Dr. Juan</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-tighter">Premium Member</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Top Navigation Bar -->
+<header class="ml-64 flex justify-between items-center px-container-margin py-unit h-16 bg-surface/80 backdrop-blur-xl border-b border-outline-variant fixed top-0 right-0 left-0 z-40">
+<div class="flex items-center gap-8">
+<h2 class="font-headline-sm text-headline-sm text-primary">Biblioteca</h2>
+<!-- Search Bar -->
+<div class="relative w-96 hidden md:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full bg-surface-container-high border-none rounded-full py-2 pl-10 pr-4 text-on-surface text-body-md focus:ring-1 focus:ring-primary/50" placeholder="Busca sesiones o maestros..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="ml-64 pt-16 h-screen overflow-y-auto bg-surface">
+<div class="max-w-7xl mx-auto px-container-margin py-10">
+<!-- Filters Section -->
+<section class="mb-section-gap">
+<div class="flex items-center gap-3 overflow-x-auto pb-4 no-scrollbar">
+<button class="px-6 py-2 rounded-full bg-primary text-on-primary font-label-md text-label-md gold-glow">Todas</button>
+<button class="px-6 py-2 rounded-full border border-outline-variant text-on-surface-variant hover:border-primary/50 hover:text-primary transition-all font-label-md text-label-md">Sueño</button>
+<button class="px-6 py-2 rounded-full border border-outline-variant text-on-surface-variant hover:border-primary/50 hover:text-primary transition-all font-label-md text-label-md">Enfoque</button>
+<button class="px-6 py-2 rounded-full border border-outline-variant text-on-surface-variant hover:border-primary/50 hover:text-primary transition-all font-label-md text-label-md">Abundancia</button>
+<button class="px-6 py-2 rounded-full border border-outline-variant text-on-surface-variant hover:border-primary/50 hover:text-primary transition-all font-label-md text-label-md">Sanación</button>
+<button class="px-6 py-2 rounded-full border border-outline-variant text-on-surface-variant hover:border-primary/50 hover:text-primary transition-all font-label-md text-label-md">Manifestación</button>
+</div>
+</section>
+<!-- Featured Categories (Bento Style) -->
+<section class="mb-section-gap">
+<div class="flex items-baseline justify-between mb-8">
+<h3 class="font-headline-md text-headline-md text-on-surface">Exploración del Subconsciente</h3>
+<a class="font-label-md text-label-md text-primary uppercase tracking-widest flex items-center gap-1 hover:gap-2 transition-all" href="#">Ver todo <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+</div>
+<!-- Session Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-gutter">
+<!-- Session Card 1 -->
+<div class="glass-card rounded-xl overflow-hidden group cursor-pointer transition-transform duration-300 hover:scale-[1.02]">
+<div class="relative h-48 overflow-hidden">
+<img alt="Sana tu Relación" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A mystical cinematic shot of two silhouettes standing close in front of a giant, glowing golden celestial portal. The lighting is ethereal, with shimmering gold dust particles floating in the air against a deep indigo and black sky. The style is hyper-realistic and artistic, evoking deep emotional connection and spiritual healing." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYZ-eTqtjyTht8uE3j8uG-mJFzsHuULL0TIKrie8jz_V9rOSK7sjzJEW8ocXtrFD8LpA5MJcoIjR7AsfzE4BRlLRwVL1gowy6Px33pq4VNtfR7SSaf1QC30nl3taCVM8PPXq6trqwFb_7Odz2hZWPphMHVS78xEG3oAnHDz0gywBuMSNZEKEolq8jjzj7xSMY0djFu0k3pup3sH26YbHc0ZdeG_pUji1kUdi1gGhToSO0kljSuOVhNwJ3HA9erbPsO7SLsoAP3Nadz"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface to-transparent"></div>
+<button class="absolute bottom-4 right-4 w-12 h-12 bg-primary rounded-full flex items-center justify-center text-on-primary gold-glow opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+</div>
+<div class="p-5">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Sana tu Relación</h4>
+<span class="text-primary opacity-60"><span class="material-symbols-outlined text-lg">balance</span></span>
+</div>
+<div class="flex items-center gap-4 text-on-surface-variant opacity-70 font-label-md text-label-md">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">schedule</span> 20 min</span>
+<span class="uppercase tracking-widest">Equilibrio</span>
+</div>
+</div>
+</div>
+<!-- Session Card 2 -->
+<div class="glass-card rounded-xl overflow-hidden group cursor-pointer transition-transform duration-300 hover:scale-[1.02]">
+<div class="relative h-48 overflow-hidden">
+<img alt="Descubrimiento de Abundancia" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A close-up artistic composition of open hands holding a concentrated orb of golden light. From the orb, intricate fractal patterns of energy emerge, spreading like roots into the dark void. The scene is lit by the intense golden glow of the light source, casting soft shadows on the skin and highlighting textures. Elegant and prestigious aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPdpmptBvfpVHtiPiJNOS1BnnxPANtGQrpz9NWDqGy9d1JtOGZCaKeyOKpz44J_wYSvkO-h5eKt1_OaFpmG4FTMyK2IsCF44RXtNb9164N8DE20Ugc8CIESfV-XEYjBCjDGaJJx6QUo8gkKgVdHlYeK32pcxeNAfYqsiw2xivI1V2jOgPsht_n0xqBhXJfqXazCPU-_JKwHPNc9cFhDPPpG_kio0TQPN7HvK3FXcmhCd-5KB-a97NXkH81rE-BNKWUPcBbVsD4UuOt"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface to-transparent"></div>
+<button class="absolute bottom-4 right-4 w-12 h-12 bg-primary rounded-full flex items-center justify-center text-on-primary gold-glow opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+</div>
+<div class="p-5">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Mente Próspera</h4>
+<span class="text-primary opacity-60"><span class="material-symbols-outlined text-lg">psychology</span></span>
+</div>
+<div class="flex items-center gap-4 text-on-surface-variant opacity-70 font-label-md text-label-md">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">schedule</span> 25 min</span>
+<span class="uppercase tracking-widest">Abundancia</span>
+</div>
+</div>
+</div>
+<!-- Session Card 3 -->
+<div class="glass-card rounded-xl overflow-hidden group cursor-pointer transition-transform duration-300 hover:scale-[1.02]">
+<div class="relative h-48 overflow-hidden">
+<img alt="Sana tu Sueño" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A peaceful and surreal landscape showing a giant crescent moon floating over a calm, dark sea under a star-filled sky. The moonlight creates a shimmering path of liquid gold on the water's surface. Soft ethereal clouds drift slowly around the moon. The atmosphere is quiet, serene, and profoundly relaxing, utilizing deep blacks and luminous gold highlights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGkODjJaKagtZ0H2vHbcO29d7NY6J2hL_dISmcqaR5q5q13AWpHBdfCqvJmgla0bTVx3bJ4yUCYEGsC2BkGyPNM7SgybihxP-tndazLV3a3wDrjLogHGBYUmBtfzYzkiZuZU-cMe-h1Az81WVzE8O7GBJdCaZiDERcRCqc708rhKy4OUjFvHXbDVJfz1RgRw35OoWv6nmO4L8MNlpwpEAqeGLIG2pB0o2XUQhCs4UTHf48-GwjEpzN51VRWZkTWZwbz5KnTNsFdNll"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface to-transparent"></div>
+<button class="absolute bottom-4 right-4 w-12 h-12 bg-primary rounded-full flex items-center justify-center text-on-primary gold-glow opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+</div>
+<div class="p-5">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Sueño Profundo</h4>
+<span class="text-primary opacity-60"><span class="material-symbols-outlined text-lg">visibility</span></span>
+</div>
+<div class="flex items-center gap-4 text-on-surface-variant opacity-70 font-label-md text-label-md">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">schedule</span> 45 min</span>
+<span class="uppercase tracking-widest">Sueño</span>
+</div>
+</div>
+</div>
+<!-- Session Card 4 -->
+<div class="glass-card rounded-xl overflow-hidden group cursor-pointer transition-transform duration-300 hover:scale-[1.02]">
+<div class="relative h-48 overflow-hidden">
+<img alt="Manifestación" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="An abstract visualization of human consciousness, featuring a brain composed of golden light fibers and glowing neurons against a dark matte black background. Golden energy waves radiate outwards in symmetrical geometric patterns. The style is futuristic and spiritual, emphasizing the power of the mind and mental transformation through high-tech minimalist design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNR6cZnk7j62F4nT_co5SsDp5M4viPpLN6rmsHtWJMLO632-CL5wgtPE2Oqp24F2DUBNuoLbTpOroEe7_kBhC_TQuPhQTWrAZzeLOvpjzV_-Z1-LmWCawStvhWEnFNgb6l5OH4JAaX4av7Cn6SkoZM5O2ZGPTYC9tOJNRiorwJq6O2eDsV3JCqm3-8IalcQrJgYWnawiuynbee0MUrdI0g60Y--VmmtKNS2R-gzu2htDI2zyiYojGm2xM4mw1N1nHgBpBHBKcjSMKN"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface to-transparent"></div>
+<button class="absolute bottom-4 right-4 w-12 h-12 bg-primary rounded-full flex items-center justify-center text-on-primary gold-glow opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+</div>
+<div class="p-5">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Manifestación Activa</h4>
+<span class="text-primary opacity-60"><span class="material-symbols-outlined text-lg">auto_awesome</span></span>
+</div>
+<div class="flex items-center gap-4 text-on-surface-variant opacity-70 font-label-md text-label-md">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">schedule</span> 15 min</span>
+<span class="uppercase tracking-widest">Enfoque</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Chakra Organized Sections -->
+<section class="mb-section-gap">
+<div class="flex items-center gap-4 mb-10">
+<div class="w-16 h-16 rounded-full glass-card flex items-center justify-center text-primary gilded-border">
+<span class="material-symbols-outlined text-3xl">self_improvement</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Transformación Total</h3>
+<p class="text-on-surface-variant opacity-60">Programas intensivos de 21 días</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Transformation Card 1 -->
+<div class="relative rounded-2xl h-[400px] overflow-hidden group cursor-pointer glass-card">
+<img class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700" data-alt="A breathtaking golden sunrise over a misty mountain range, where the peaks emerge like islands from a sea of clouds. The light is warm and intense, piercing through the fog in sharp rays. The scene represents a new beginning and spiritual awakening. The color palette is dominated by rich ambers, deep bronzes, and charcoal blacks. Elegant, high-end photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiIL97JqTr-8CocTJuSrk1yusk285kxoTohLuezE1sbqDDKx41wyI2F3g8EkSqcWbGcqHivlnA72sbfI8Vo5CYl7Gn5z0tX3Y82-viyk3AhGMlZhue0bLNmCAKiHo3Xtb178gxNF5_Bzo50wICgGgRTLf8o611KcU3ZJYdgIMnRJ8VexJ3z8eMT2UIImBB7j_6L226e5idbRFSW9bN74yBsHyR8KZf1rnHAT8nhqM3SnhTlHYHIOTn7PxxayX-crGmc2PbfoWq6YHJ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-surface/40 to-transparent"></div>
+<div class="absolute bottom-0 left-0 right-0 p-8">
+<span class="font-label-md text-label-md text-primary uppercase tracking-[0.2em] mb-2 block">Nivel Maestro</span>
+<h4 class="font-headline-lg text-headline-lg text-on-surface mb-4">Reprogramación Subconsciente Profunda</h4>
+<p class="text-on-surface-variant mb-6 line-clamp-2 opacity-80">Domina tu realidad interna y proyecta una nueva existencia a través de la coherencia cerebral.</p>
+<button class="flex items-center gap-2 text-primary font-bold hover:gap-4 transition-all">
+                                Comenzar ahora <span class="material-symbols-outlined">arrow_right_alt</span>
+</button>
+</div>
+</div>
+<!-- Transformation Card 2 -->
+<div class="md:col-span-2 flex flex-col gap-gutter">
+<div class="flex-1 glass-card rounded-2xl p-8 flex items-center gap-8 group hover:border-primary/40 transition-colors">
+<div class="w-24 h-24 rounded-2xl overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="A macro shot of a single drop of water falling into a perfectly still golden liquid, creating perfectly concentric ripples. The lighting is focused and dramatic, capturing the frozen motion of the droplet and the golden surface. It symbolizes clarity, focus, and the ripple effect of meditation. Minimalist, premium, and calm." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtI86oL1tF1TfgeppFj_fZeOzUPjwUX54y-UjfXkHqvVbXbjMomb0QWg31B2ofw6DeDy4gg-ErK7xrvfSu48TtLEgZHEeiBinWWeRNLiS3jBjw74Z_Fn8MUXvBLlYFlme8OUDdosXPhFWbHBhnbGL_hQZKMhGi4HhZkXmXCoQotTpdzEwo0E7Nn9ek6rOXuXhs4Xv_9_Nl4rUwmYghvO_B5KBZyKA_AiJ3ey_jfm5YUxqVISq0kqwRMv7hQRRoeHjPQI8y0SSbRgMV"/>
+</div>
+<div class="flex-1">
+<h4 class="font-headline-sm text-headline-sm text-on-surface mb-2">Paz en el Caos</h4>
+<p class="text-on-surface-variant text-body-md opacity-70 mb-4">Herramientas de emergencia para momentos de alta tensión emocional.</p>
+<div class="flex items-center gap-4">
+<span class="font-label-md text-label-md text-primary px-3 py-1 bg-primary/10 rounded-full">10 Sesiones</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Maestro: Honorio Castillo</span>
+</div>
+</div>
+<button class="w-14 h-14 rounded-full border border-primary/30 flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all group-hover:scale-110">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+<div class="flex-1 glass-card rounded-2xl p-8 flex items-center gap-8 group hover:border-primary/40 transition-colors">
+<div class="w-24 h-24 rounded-2xl overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="A silhouette of a person meditating in a minimalist, high-end zen garden at dusk. A soft golden light glow emanates from their chest area, representing the heart chakra. The environment is clean, structured, and luxurious, with dark stone textures and subtle water features. Deep serenity and luxury wellness atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDatAhXPPuQN8T8d5F9G0gWm1UB6PMFMunGXmtdGK5yxizJgMZ_2I2Ln-mFEey5dd0T9Ys0O3y7TuV1ATo9aip_tQPm0KxS4fMbs1tRpT12sHu4uAaw-dYC9smVuMNC8u3G140Q_3T9g1I1oCVoRV56iBWA1pyqg4c2gTHbz61_xh_bRQsitFYJDabCu5jBZ1IsDDFpH2TZDbyFEPSMA3kwANyQ3RkFsYieeyhyLNG-OR4RYjcrwQM1sYTlQt0EWpGYzaDurNwVzYEu"/>
+</div>
+<div class="flex-1">
+<h4 class="font-headline-sm text-headline-sm text-on-surface mb-2">Despertar del Guerrero</h4>
+<p class="text-on-surface-variant text-body-md opacity-70 mb-4">Activa tu voluntad y capacidad de ejecución desde un estado de calma.</p>
+<div class="flex items-center gap-4">
+<span class="font-label-md text-label-md text-primary px-3 py-1 bg-primary/10 rounded-full">12 Sesiones</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Maestra: Elena S.</span>
+</div>
+</div>
+<button class="w-14 h-14 rounded-full border border-primary/30 flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all group-hover:scale-110">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Footer -->
+<footer class="ml-64 flex items-center justify-between px-container-margin h-24 bg-surface-container-lowest border-t border-primary/20 shadow-[0_-20px_40px_rgba(212,175,55,0.05)] relative z-50">
+<div class="flex items-center gap-8">
+<span class="font-headline-sm text-primary">Hypnos Prime</span>
+<span class="text-on-surface-variant font-label-md text-label-md opacity-60">© 2024 Reprograma tu mente.</span>
+</div>
+<div class="flex gap-8">
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-transform hover:scale-105" href="#">Privacidad</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-transform hover:scale-105" href="#">Términos</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-transform hover:scale-105" href="#">Soporte</a>
+</div>
+</footer>
+</main>
+<!-- Mini Audio Player (Floating) -->
+<div class="fixed bottom-32 right-10 w-80 glass-card rounded-2xl p-4 shadow-2xl z-50 border-primary/40 border-2">
+<div class="flex items-center gap-4">
+<div class="w-14 h-14 rounded-lg overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCb0QA4zypPdW6bEMFuyV4eVAhZNUdLbcdMLSEuIbLdaWdCNl84aa9D3k6nVnB3A9_D1Tz4k98KUrHqRnDOqsSt5HbSRX0H7hLFJTSccJVTpYKHg6UJ6Dy5TUaAMKysJXnVh2LGvFhEmKWBfTNmqONrWB4TjOPgaBiHEHnYYcq1dG2s70WhkRM8AYiE0o58xJQPrJXlEvpczyavlDxkik7-vpSRsUKQ4WETOB3be12h5wzPd-QgHG_DCsehC5imLV2z-QEUo9ReNjDP"/>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-on-surface font-bold text-sm truncate">Sana tu Relación</p>
+<p class="text-on-surface-variant text-[10px] uppercase tracking-widest">Honorio Castillo</p>
+</div>
+<button class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center gold-glow">
+<span class="material-symbols-outlined">pause</span>
+</button>
+</div>
+<div class="mt-4">
+<div class="h-1 w-full bg-surface-container rounded-full relative">
+<div class="absolute top-0 left-0 h-full w-[45%] bg-primary rounded-full"></div>
+<div class="absolute top-1/2 left-[45%] -translate-y-1/2 w-3 h-3 bg-primary rounded-full shadow-[0_0_10px_#f2ca50]"></div>
+</div>
+<div class="flex justify-between mt-2 text-[10px] text-on-surface-variant">
+<span>08:42</span>
+<span>20:00</span>
+</div>
+</div>
+</div>
+</body></html>

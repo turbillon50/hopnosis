@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&amp;family=Hanken+Grotesk:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#201f1f",
+                        "surface-container-highest": "#353534",
+                        "surface-variant": "#353534",
+                        "on-primary": "#3c2f00",
+                        "surface-container-low": "#1c1b1b",
+                        "on-secondary-fixed": "#1b1b1b",
+                        "on-background": "#e5e2e1",
+                        "on-secondary": "#313030",
+                        "on-primary-container": "#554300",
+                        "surface": "#131313",
+                        "tertiary": "#e9cb85",
+                        "background": "#131313",
+                        "on-tertiary-fixed-variant": "#584409",
+                        "inverse-primary": "#735c00",
+                        "outline-variant": "#4d4635",
+                        "primary-fixed": "#ffe088",
+                        "on-error-container": "#ffdad6",
+                        "error-container": "#93000a",
+                        "tertiary-container": "#ccb06c",
+                        "error": "#ffb4ab",
+                        "surface-dim": "#131313",
+                        "secondary": "#c8c6c5",
+                        "surface-container-high": "#2a2a2a",
+                        "surface-tint": "#e9c349",
+                        "outline": "#99907c",
+                        "tertiary-fixed-dim": "#e1c37d",
+                        "on-secondary-container": "#b7b5b4",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-surface-variant": "#d0c5af",
+                        "inverse-surface": "#e5e2e1",
+                        "primary-container": "#d4af37",
+                        "on-tertiary": "#3e2e00",
+                        "on-error": "#690005",
+                        "primary": "#f2ca50",
+                        "tertiary-fixed": "#fedf97",
+                        "inverse-on-surface": "#313030",
+                        "on-tertiary-container": "#564207",
+                        "secondary-container": "#474746",
+                        "surface-bright": "#393939",
+                        "on-surface": "#e5e2e1",
+                        "primary-fixed-dim": "#e9c349",
+                        "on-secondary-fixed-variant": "#474746",
+                        "on-tertiary-fixed": "#251a00",
+                        "on-primary-fixed": "#241a00",
+                        "secondary-fixed": "#e5e2e1",
+                        "on-primary-fixed-variant": "#574500"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "baseline": "8px",
+                        "section-gap": "48px",
+                        "container-padding-mobile": "20px",
+                        "gutter": "16px",
+                        "container-padding-desktop": "64px"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"],
+                        "headline-lg-mobile": ["Playfair Display"],
+                        "title-lg": ["Hanken Grotesk"],
+                        "headline-md": ["Playfair Display"],
+                        "body-md": ["Hanken Grotesk"],
+                        "label-lg": ["Hanken Grotesk"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "headline-lg": ["Playfair Display"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .gold-aura {
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.15);
+        }
+        .session-card-gradient {
+            background: linear-gradient(135deg, rgba(32, 31, 31, 1) 0%, rgba(53, 53, 52, 0.5) 100%);
+            border: 1px solid #4d4635;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col items-center">
+<main class="w-full max-w-[1024px] flex-1 flex flex-col px-container-padding-mobile lg:px-container-padding-desktop pb-section-gap">
+<!-- Header & Search -->
+<header class="pt-baseline pb-gutter sticky top-0 bg-background/95 backdrop-blur-md z-10">
+<div class="flex flex-col gap-4">
+<div class="flex items-center justify-between pt-4">
+<h1 class="font-headline-lg text-primary">Biblioteca</h1>
+<div class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="account_circle">account_circle</span>
+</div>
+</div>
+<div class="relative group">
+<div class="absolute inset-y-0 left-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-primary-container" data-icon="search">search</span>
+</div>
+<input class="w-full bg-surface-container border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 text-on-surface placeholder:text-outline py-4 pl-12 transition-all duration-300" placeholder="Buscar sesiones, chakras o mantras..." type="text"/>
+</div>
+</div>
+</header>
+<!-- Featured Library Header Image -->
+<section class="mt-8 mb-section-gap">
+<div class="relative h-48 w-full rounded-xl overflow-hidden gold-aura">
+<img class="w-full h-full object-cover opacity-60" data-alt="A cinematic, low-key image of a celestial nebula with swirling deep purples and shimmering gold dust particles. The lighting is ethereal and moody, evoking a sense of cosmic depth and luxury. The aesthetic is minimalist and high-end, featuring subtle glowing effects that align with a premium hypnosis brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCba6LNWER_Em1s3GdMVFt9JDAx1CdAOk2t53365TAugaxBfXXyy31f-Aj5IlVbsh5bLXXBz66YWhyXpfHzV6yoWf-xx2woZbtrSL7Iz970gprS4RJaQ_CHU-FgCqCB7BaCDQENMxXS0SHJo-4whU2Oao6IREFQS-hvf9kHH9aC2Oz1ns3mL4b-0kggYwtJaekNdF1wdwfms_QCOJteKNxFPN1ZDxxgj5UQUq3Og-6ce9QhENsSNTlRTZjSfoN24vel6eEnuHcIjlkS"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent flex flex-col justify-end p-6">
+<span class="font-label-lg text-primary uppercase tracking-widest mb-1">Recomendado</span>
+<h2 class="font-headline-md text-white">Ascensión Estelar</h2>
+</div>
+</div>
+</section>
+<!-- Chakra: Raíz -->
+<section class="mb-section-gap">
+<div class="flex items-center gap-3 mb-gutter">
+<div class="h-[1px] flex-1 bg-outline-variant"></div>
+<h3 class="font-label-lg text-primary uppercase tracking-[0.2em]">Chakra Raíz (Muladhara)</h3>
+<div class="h-[1px] flex-1 bg-outline-variant"></div>
+</div>
+<div class="flex flex-col gap-4">
+<!-- Session Item 1 -->
+<div class="session-card-gradient rounded-lg p-4 flex items-center justify-between group hover:border-primary transition-colors cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-surface-container-highest flex items-center justify-center border border-outline-variant overflow-hidden">
+<img class="w-full h-full object-cover opacity-70" data-alt="A close-up shot of dark, rich volcanic sand illuminated by a single golden light source from above. The texture is detailed and grounded, conveying strength and stability. The overall tone is dark and luxurious, consistent with a high-end mindfulness application's visual language." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAanFKha3QYOuoD6IfBNQ4XErSAbq960gtlPOCiyMzznoUARIMoIs-l8Q9892kaVVCnRMAQgREcsm24BDaeJXaQQNmWgP0V92aR0STG5Rt--Q-sKDKahAQwU9rcF7htcqnsHik30ctXPzZxOEgckK0J9uOBZK8W5BNrwJDHJUwMshJxew37HmkZ9bZxDiTrZb_MeIzP3p5KaeFw4aQpBFs4oQbdNcbsWtek_mbnYmdcZ0Ouc2bzOmvn08m1oGn_EE3HPpKJ5Vd8WHtZ"/>
+</div>
+<div>
+<h4 class="font-title-lg text-on-surface">Paz Profunda</h4>
+<p class="font-body-md text-outline">25 min • Enraizamiento</p>
+</div>
+</div>
+<button class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary gold-aura">
+<span class="material-symbols-outlined" data-icon="play_arrow" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+</div>
+<!-- Session Item 2 -->
+<div class="session-card-gradient rounded-lg p-4 flex items-center justify-between group hover:border-primary transition-colors cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-surface-container-highest flex items-center justify-center border border-outline-variant overflow-hidden">
+<img class="w-full h-full object-cover opacity-70" data-alt="Abstract silhouettes of majestic mountain peaks against a twilight sky filled with stars. The image is rendered in deep blacks and charcoal grays with subtle golden light catching the ridges. It feels vast, quiet, and premium, representing the connection to earth and the cosmos." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbSnrcbJc6F952SI6riBRuQBpvCYRekqdsE6jPf5oN5TOaM-_tk6FS8-Bx_7_6hjwred0pSDzj3mLGnZt9sLN0_OnWq2osIu2_nCsDym1jKF8rqfDJt4FfnkBxjMoS2T4HwNJNb8IeebYR0krBPi1qfKdk1hreLWOaEEX3LN1ij-STO8TvvAEcJw3s9Yvzqw1kJKGMmwA1wKqI9ljzzVRF0YY-rTgzUKdP7GZUJV38YSLURbYWycM79lXDQq9K6uKbToItmmH5Xe-J"/>
+</div>
+<div>
+<h4 class="font-title-lg text-on-surface">Estabilidad Eterna</h4>
+<p class="font-body-md text-outline">15 min • Seguridad</p>
+</div>
+</div>
+<button class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary gold-aura">
+<span class="material-symbols-outlined" data-icon="play_arrow" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Chakra: Tercer Ojo -->
+<section class="mb-section-gap">
+<div class="flex items-center gap-3 mb-gutter">
+<div class="h-[1px] flex-1 bg-outline-variant"></div>
+<h3 class="font-label-lg text-primary uppercase tracking-[0.2em]">Tercer Ojo (Ajna)</h3>
+<div class="h-[1px] flex-1 bg-outline-variant"></div>
+</div>
+<div class="flex flex-col gap-4">
+<!-- Session Item 3 -->
+<div class="session-card-gradient rounded-lg p-4 flex items-center justify-between group hover:border-primary transition-colors cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-surface-container-highest flex items-center justify-center border border-outline-variant overflow-hidden">
+<img class="w-full h-full object-cover opacity-70" data-alt="A mesmerizing deep-space photograph showing a distant galaxy in shades of indigo and dark blue, centered around a bright golden core. The imagery is mystic and high-contrast, designed to represent intuition and spiritual vision within a luxury celestial aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZaKzL88qav9S5LKhkfVh9EAzH3BTg9xK63q5EQ4_kTu1UHgMjkqGEGfVKzQCxLDO1sGXkwfh18r13vG7z-TsBRibpcNzfG5bKC8UfZz3eESZpnK8m-73oUpIilIPMxVglBpeGIVksgpg1yQaAQybAi_pesML2ompa9HJN44yFhwpw_0Pl7_6hRLlOWw2jySZc-cdOhsa7_I8rmT8-PWBKaoArCNV88MgEcZKTTY3waixAeB9MkR2ys-r-IUqzO7_xG4zkrJKGkzxs"/>
+</div>
+<div>
+<h4 class="font-title-lg text-on-surface">Apertura de Mente</h4>
+<p class="font-body-md text-outline">30 min • Intuición</p>
+</div>
+</div>
+<button class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary gold-aura">
+<span class="material-symbols-outlined" data-icon="play_arrow" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+</div>
+<!-- Session Item 4 -->
+<div class="session-card-gradient rounded-lg p-4 flex items-center justify-between group hover:border-primary transition-colors cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-surface-container-highest flex items-center justify-center border border-outline-variant overflow-hidden">
+<img class="w-full h-full object-cover opacity-70" data-alt="A highly detailed close-up of a dark iris with a golden reflection in the center, mimicking the look of a stellar eclipse. The lighting is dramatic and focused, emphasizing the themes of vision and internal light in a minimalist-luxury style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2bUCDtcur14MHbruaM_hRVUkw9jssDENhGpzX1Nc0RL6wsA998S5MG2psYvzVxnFH1LNjR7aRQmaUdJ_w-Mb9V-7_u7XRli35RLQar9QdYI7Ru4Vui-H3RRvlLgppVL-w9daazpiln1qwhVtTRkqqXwj2EIuT7KPj8L4_RUAqu-mKdWEFKJ8VGlADaPgwaeWqi1QJY9umv-2pGym0p6P3IwzgTs772KeNvDXTod5NjDCQxVg8_wKtstKih4oEAyiT13Lh_FM6IbNE"/>
+</div>
+<div>
+<h4 class="font-title-lg text-on-surface">Visión Galáctica</h4>
+<p class="font-body-md text-outline">20 min • Claridad</p>
+</div>
+</div>
+<button class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary gold-aura">
+<span class="material-symbols-outlined" data-icon="play_arrow" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar (Shared Component Style) -->
+<div class="fixed bottom-0 w-full max-w-[1024px] z-50">
+<div class="flex gap-2 border-t border-[#433d28] bg-[#302c1c] px-4 pb-3 pt-2">
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-[#c3b998]" href="#">
+<div class="text-[#c3b998] flex h-8 items-center justify-center" data-icon="House" data-size="24px" data-weight="regular">
+<svg fill="currentColor" height="24px" viewbox="0 0 256 256" width="24px" xmlns="http://www.w3.org/2000/svg">
+<path d="M218.83,103.77l-80-75.48a1.14,1.14,0,0,1-.11-.11,16,16,0,0,0-21.53,0l-.11.11L37.17,103.77A16,16,0,0,0,32,115.55V208a16,16,0,0,0,16,16H96a16,16,0,0,0,16-16V160h32v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V115.55A16,16,0,0,0,218.83,103.77ZM208,208H160V160a16,16,0,0,0-16-16H112a16,16,0,0,0-16,16v48H48V115.55l.11-.1L128,40l79.9,75.43.11.1Z"></path>
+</svg>
+</div>
+<p class="text-[#c3b998] text-xs font-medium leading-normal tracking-[0.015em]">Inicio</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-white border-t-2 border-primary pt-0" href="#">
+<div class="text-white flex h-8 items-center justify-center" data-icon="Books" data-size="24px" data-weight="fill">
+<svg fill="currentColor" height="24px" viewbox="0 0 256 256" width="24px" xmlns="http://www.w3.org/2000/svg">
+<path d="M231.65,194.55,198.46,36.75a16,16,0,0,0-19-12.39L132.65,34.42a16.08,16.08,0,0,0-12.3,19l33.19,157.8A16,16,0,0,0,169.16,224a16.25,16.25,0,0,0,3.38-.36l46.81-10.06A16.09,16.09,0,0,0,231.65,194.55ZM136,50.15c0-.06,0-.09,0-.09l46.8-10,3.33,15.87L139.33,66Zm10,47.38-3.35-15.9,46.82-10.06,3.34,15.9Zm70,100.41-46.8,10-3.33-15.87L212.67,182,216,197.85C216,197.91,216,197.94,216,197.94ZM104,32H56A16,16,0,0,0,40,48V208a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V48A16,16,0,0,0,104,32ZM56,48h48V64H56Zm48,160H56V192h48v16Z"></path>
+</svg>
+</div>
+<p class="text-white text-xs font-medium leading-normal tracking-[0.015em]">Biblioteca</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-[#c3b998]" href="#">
+<div class="text-[#c3b998] flex h-8 items-center justify-center" data-icon="HourglassHigh" data-size="24px" data-weight="regular">
+<svg fill="currentColor" height="24px" viewbox="0 0 256 256" width="24px" xmlns="http://www.w3.org/2000/svg">
+<path d="M184,24H72A16,16,0,0,0,56,40V76a16.07,16.07,0,0,0,6.4,12.8L114.67,128,62.4,167.2A16.07,16.07,0,0,0,56,180v36a16,16,0,0,0,16,16H184a16,16,0,0,0,16-16V180.36a16.09,16.09,0,0,0-6.35-12.77L141.27,128l52.38-39.6A16.05,16.05,0,0,0,200,75.64V40A16,16,0,0,0,184,24Zm0,16V56H72V40Zm0,176H72V180l56-42,56,42.35Zm-56-98L72,76V72H184v3.64Z"></path>
+</svg>
+</div>
+<p class="text-[#c3b998] text-xs font-medium leading-normal tracking-[0.015em]">Meditación</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-[#c3b998]" href="#">
+<div class="text-[#c3b998] flex h-8 items-center justify-center" data-icon="Person" data-size="24px" data-weight="regular">
+<svg fill="currentColor" height="24px" viewbox="0 0 256 256" width="24px" xmlns="http://www.w3.org/2000/svg">
+<path d="M160,40a32,32,0,1,0-32,32A32,32,0,0,0,160,40ZM128,56a16,16,0,1,1,16-16A16,16,0,0,1,128,56Zm90.34,78.05L173.17,82.83a32,32,0,0,0-24-10.83H106.83a32,32,0,0,0-24,10.83L37.66,134.05a20,20,0,0,0,28.13,28.43l16.3-13.08L65.55,212.28A20,20,0,0,0,102,228.8l26-44.87,26,44.87a20,20,0,0,0,36.41-16.52L173.91,149.4l16.3,13.08a20,20,0,0,0,28.13-28.43Zm-11.51,16.77a4,4,0,0,1-5.66,0c-.21-.2-.42-.4-.65-.58L165,121.76A8,8,0,0,0,152.26,130L175.14,217a7.72,7.72,0,0,0,.48,1.35,4,4,0,1,1-7.25,3.38,6.25,6.25,0,0,0-.33-.63L134.92,164a8,8,0,0,0-13.84,0L88,221.05a6.25,6.25,0,0,0-.33.63,4,4,0,0,1-2.26,2.07,4,4,0,0,1-5-5.45,7.72,7.72,0,0,0,.48-1.35L103.74,130A8,8,0,0,0,91,121.76L55.48,150.24c-.23.18-.44.38-.65.58a4,4,0,1,1-5.66-5.65c.12-.12.23-.24.34-.37L94.83,93.41a16,16,0,0,1,12-5.41h42.34a16,16,0,0,1,12,5.41l45.32,51.39c.11.13.22.25.34.37A4,4,0,0,1,206.83,150.82Z"></path>
+</svg>
+</div>
+<p class="text-[#c3b998] text-xs font-medium leading-normal tracking-[0.015em]">Perfil</p>
+</a>
+</div>
+</div>
+</body></html>

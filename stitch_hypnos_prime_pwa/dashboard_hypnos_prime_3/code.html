@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Hypnos Prime - Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Manrope:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary": "#343206",
+                        "on-secondary-fixed": "#1e1c00",
+                        "surface": "#131313",
+                        "on-tertiary-fixed": "#271900",
+                        "on-primary-container": "#554300",
+                        "on-error-container": "#ffdad6",
+                        "primary-fixed-dim": "#e9c349",
+                        "primary": "#f2ca50",
+                        "on-secondary-container": "#bcb77e",
+                        "on-primary-fixed-variant": "#574500",
+                        "on-tertiary": "#422c01",
+                        "on-error": "#690005",
+                        "on-background": "#e5e2e1",
+                        "on-primary-fixed": "#241a00",
+                        "surface-bright": "#393939",
+                        "secondary-fixed": "#eae5a8",
+                        "secondary-container": "#4b481a",
+                        "background": "#131313",
+                        "primary-container": "#d4af37",
+                        "inverse-surface": "#e5e2e1",
+                        "inverse-on-surface": "#313030",
+                        "secondary-fixed-dim": "#cec98e",
+                        "surface-tint": "#e9c349",
+                        "surface-container-lowest": "#0e0e0e",
+                        "outline": "#99907c",
+                        "surface-container": "#201f1f",
+                        "on-surface": "#e5e2e1",
+                        "primary-fixed": "#ffe088",
+                        "inverse-primary": "#735c00",
+                        "surface-dim": "#131313",
+                        "error": "#ffb4ab",
+                        "tertiary-fixed-dim": "#e5c187",
+                        "tertiary-container": "#d0ae76",
+                        "outline-variant": "#4d4635",
+                        "error-container": "#93000a",
+                        "tertiary-fixed": "#ffdeaa",
+                        "surface-variant": "#353534",
+                        "on-secondary-fixed-variant": "#4b481a",
+                        "on-tertiary-container": "#594113",
+                        "on-tertiary-fixed-variant": "#5b4314",
+                        "on-primary": "#3c2f00",
+                        "surface-container-high": "#2a2a2a",
+                        "on-surface-variant": "#d0c5af",
+                        "secondary": "#cec98e",
+                        "tertiary": "#eec98f",
+                        "surface-container-low": "#1c1b1b",
+                        "surface-container-highest": "#353534"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "unit": "8px",
+                        "section-gap": "48px",
+                        "container-margin": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Playfair Display"],
+                        "headline-md": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"],
+                        "body-md": ["Manrope"],
+                        "label-md": ["Manrope"],
+                        "body-lg": ["Manrope"],
+                        "headline-lg": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "500"}],
+                        "display-lg": ["56px", {"lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(242, 202, 80, 0.2);
+        }
+        .gilded-border {
+            border: 1px solid;
+            border-image-source: linear-gradient(135deg, #8A6D3B 0%, #f2ca50 50%, #8A6D3B 100%);
+            border-image-slice: 1;
+        }
+        .gold-glow {
+            box-shadow: 0 0 20px rgba(242, 202, 80, 0.15);
+        }
+        body {
+            background-color: #131313;
+            color: #e5e2e1;
+            overflow-x: hidden;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-surface">
+<!-- SideNavBar Shell -->
+<aside class="w-64 h-full fixed left-0 top-0 border-r border-outline-variant bg-surface-container-low flex flex-col py-gutter z-50">
+<div class="px-6 mb-12">
+<h1 class="font-headline-md text-headline-md text-primary tracking-widest uppercase">Hypnos Prime</h1>
+<p class="font-label-md text-label-md text-on-surface-variant/60 mt-1">Luxury Wellness</p>
+</div>
+<nav class="flex-1 space-y-2">
+<!-- Active: Inicio -->
+<a class="text-primary font-bold border-l-2 border-primary pl-4 py-2 flex items-center gap-3 transition-all opacity-80 scale-95" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-md text-label-md">Inicio</span>
+</a>
+<a class="text-on-surface-variant flex items-center gap-3 px-4 py-2 hover:text-primary transition-colors duration-300" href="#">
+<span class="material-symbols-outlined">library_music</span>
+<span class="font-label-md text-label-md">Biblioteca</span>
+</a>
+<a class="text-on-surface-variant flex items-center gap-3 px-4 py-2 hover:text-primary transition-colors duration-300" href="#">
+<span class="material-symbols-outlined">explore</span>
+<span class="font-label-md text-label-md">Explorar</span>
+</a>
+<div class="py-4 px-4">
+<p class="text-[10px] uppercase tracking-widest text-outline mb-2">Estados</p>
+<div class="space-y-1">
+<a class="text-on-surface-variant flex items-center gap-3 py-2 hover:text-primary transition-colors duration-300" href="#">
+<span class="material-symbols-outlined">psychology</span>
+<span class="font-label-md text-label-md">Mente</span>
+</a>
+<a class="text-on-surface-variant flex items-center gap-3 py-2 hover:text-primary transition-colors duration-300" href="#">
+<span class="material-symbols-outlined">visibility</span>
+<span class="font-label-md text-label-md">Consciente</span>
+</a>
+<a class="text-on-surface-variant flex items-center gap-3 py-2 hover:text-primary transition-colors duration-300" href="#">
+<span class="material-symbols-outlined">auto_awesome</span>
+<span class="font-label-md text-label-md">Subconsciente</span>
+</a>
+<a class="text-on-surface-variant flex items-center gap-3 py-2 hover:text-primary transition-colors duration-300" href="#">
+<span class="material-symbols-outlined">balance</span>
+<span class="font-label-md text-label-md">Equilibrio</span>
+</a>
+<a class="text-on-surface-variant flex items-center gap-3 py-2 hover:text-primary transition-colors duration-300" href="#">
+<span class="material-symbols-outlined">self_improvement</span>
+<span class="font-label-md text-label-md">Transformación</span>
+</a>
+</div>
+</div>
+</nav>
+<div class="mt-auto px-4">
+<div class="glass-panel p-4 rounded-xl flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-primary-container">
+<img alt="Dr. Juan Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAplsDsFqg9v16kOjNHO5N4OADpfjAHnPsEhApK6va0Rsq08TXhkplFVrjsRy3DdbZWfLpwvknqsdhDjX4HylpUYIn-vX26iJoD9hN-6PQLX1o8Z1WoseTxz9ALvk0whyPayQiK2d8FG6iGI5cMiuO9JBUL10qaVVQeT7cCwSv9L4Q-MH9v5NLxgJt6Z2EEaM7GNbjOwB73yQtoq89R9jficNxFxYAem_3wbN5RlPIqXU_2nmGoflDuOyeTSLZ2w5-ikCNUvxFlJOMx"/>
+</div>
+<div>
+<p class="text-on-surface font-semibold text-[14px]">Dr. Juan</p>
+<p class="text-on-surface-variant text-[11px]">Premium User</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- TopNavBar Shell -->
+<header class="ml-64 flex justify-between items-center px-container-margin py-unit h-16 fixed top-0 right-0 left-0 bg-surface/80 dark:bg-surface/80 backdrop-blur-xl border-b border-outline-variant z-40">
+<div class="flex items-center gap-4">
+<h2 class="font-headline-sm text-headline-sm text-primary">Hypnos Prime</h2>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative flex items-center bg-surface-container-high px-4 py-1.5 rounded-full border border-outline-variant/30">
+<span class="material-symbols-outlined text-outline text-[20px]">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm text-on-surface placeholder:text-outline w-64" placeholder="Buscar sesiones..." type="text"/>
+</div>
+<div class="flex items-center gap-4 text-on-surface-variant">
+<button class="hover:text-primary-fixed-dim transition-transform active:scale-95">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="hover:text-primary-fixed-dim transition-transform active:scale-95">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="ml-64 pt-24 pb-32 px-container-margin min-h-screen">
+<!-- Hero Section: Maestro Honorio Castillo -->
+<section class="max-w-6xl mx-auto mb-section-gap">
+<div class="relative glass-panel rounded-[2rem] overflow-hidden p-12 flex items-center justify-between min-h-[400px]">
+<div class="z-10 max-w-xl">
+<span class="font-label-md text-label-md text-primary tracking-[0.2em] uppercase mb-4 block">Maestro Principal</span>
+<h2 class="font-display-lg text-display-lg mb-4 italic">Maestro Honorio Castillo</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8 leading-relaxed">
+                        Continúa tu camino sagrado a través del descubrimiento de la abundancia y la reprogramación profunda de tu ser.
+                    </p>
+<button class="bg-primary hover:bg-primary-fixed-dim text-on-primary px-8 py-3 rounded-full font-semibold tracking-wide flex items-center gap-3 gold-glow transition-all">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+                        EMPEZAR SESIÓN
+                    </button>
+</div>
+<div class="absolute right-0 top-0 bottom-0 w-1/2 overflow-hidden">
+<img alt="Maestro Honorio Castillo Portrait" class="w-full h-full object-cover object-center grayscale hover:grayscale-0 transition-all duration-700 opacity-80" data-alt="A dignified and serene portrait of a spiritual guide, Maestro Honorio Castillo, set against a deep black background. He has a warm, wise expression and is dressed in premium minimalist dark clothing. The lighting is dramatic and artistic, emphasizing his features with a soft golden glow that reflects the luxury wellness aesthetic of Hypnos Prime. High-end editorial photography style with rich textures and deep shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBD0IjZVPpT6CWBOiHJHWVyoSLSa3fV-pZg7IhahHCLFr1JtkIRwnF02dvxhgtJwUC5ALZoGc81Y0FyoDUqdI0BVmbKr6DhBntc8d60p1SgfYN8HOcU0ZFIvnVGpBIQYzAjL9MHFoZ5pWhHEYjtCAZJxx1ZxEuZNIhFCV0PnpDlWGSU4Ms9MwnnlAX3johmGJ8jwuwbjwzNBy20L6iZq-dU0NhEIANGT6k_hOofKx8TaQ1XYgVL0CVNOAPqjA_ozSKdtNMFpriOrx_v"/>
+<div class="absolute inset-0 bg-gradient-to-r from-surface via-surface/40 to-transparent"></div>
+</div>
+</div>
+</section>
+<!-- Categories Section (Chakras) -->
+<section class="max-w-6xl mx-auto mb-section-gap">
+<div class="flex items-center justify-between mb-8">
+<h3 class="font-headline-lg text-headline-lg">Centros de Energía</h3>
+<a class="font-label-md text-label-md text-primary flex items-center gap-1 italic" href="#">Ver todos los estados <span class="material-symbols-outlined text-[14px]">arrow_forward</span></a>
+</div>
+<div class="grid grid-cols-5 gap-6">
+<!-- Mente -->
+<div class="glass-panel group p-8 rounded-3xl text-center hover:scale-[1.02] transition-all cursor-pointer border border-transparent hover:border-primary/40">
+<div class="w-16 h-16 mx-auto mb-4 p-2 bg-surface-container rounded-full flex items-center justify-center">
+<img alt="Mente" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida/ADBb0uh3oB8eQqw9lcyzXot328mWgOuiBGVfTkp8RBvcceBuVe78FvNgj8fyPOclgZLUi0SzvQDNEzty0gHpwHtdCiEXSX9zIzroK6X1B2sDmbsbcUE5kIalH0PhoeHrAC73sEVbNggTl4gDi2cBgvSvH31W3gBPFw8wkRmWpPlvCJaR2xAqeEU63-_EsIdbWYi2-zf4GTB1KF_zZEIZsogM5ArA3McRD3jew_5_mXWUa6Ygwphx_-UxAUB8S4vh"/>
+</div>
+<p class="font-label-md text-label-md tracking-widest uppercase group-hover:text-primary transition-colors">Mente</p>
+</div>
+<!-- Consciente -->
+<div class="glass-panel group p-8 rounded-3xl text-center hover:scale-[1.02] transition-all cursor-pointer border border-transparent hover:border-primary/40">
+<div class="w-16 h-16 mx-auto mb-4 p-2 bg-surface-container rounded-full flex items-center justify-center">
+<img alt="Consciente" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida/ADBb0ujOu_tgJZNtmgZhNJxKZjO2WjjgkD9cZ1qe4Ky4pai4HRkH-RdVj-mjzk-UKuIC5hGO7r8z8O7QNH8vEaB5_Put6K3qrs8HclhGnq4a2xtWa2CjvLgaTKGqdGS1xEfOc8inGhQ1sI7msda7PD6MWmbsanvuPPjzBeZHIvuyUCViRbMg0x7geebX_f9aBB6uTJYfSY7J42gZIFMrSS6YEim8mY3GpWwWG4GVz03uRP2Hj0pLGXiWn7X9_X0"/>
+</div>
+<p class="font-label-md text-label-md tracking-widest uppercase group-hover:text-primary transition-colors">Consciente</p>
+</div>
+<!-- Subconsciente -->
+<div class="glass-panel group p-8 rounded-3xl text-center hover:scale-[1.02] transition-all cursor-pointer border border-transparent hover:border-primary/40">
+<div class="w-16 h-16 mx-auto mb-4 p-2 bg-surface-container rounded-full flex items-center justify-center">
+<img alt="Subconsciente" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida/ADBb0ugv7eHZ4CRPWYjqV_zc9R3KvpeEYvE-iTp8TfX4D_di_J6agM7dmfaNsPNP3zVOVODHBuAoMf40ycdyb7rUTR2TQrHsWSUVOetscuyHtkVR5Ws97eD-QrNwZKcFYUILe32NesFJE30q5sQUDHqaT4vpTshevjE3VBkyx8fQf4wArbORmXSkwVMvlWHb6ChcG2vFGbf1ulInPcn9szcmYVZtUnNa_DtkeHHxwM0gZhKHvcby6MKMjCVTd6Ow"/>
+</div>
+<p class="font-label-md text-label-md tracking-widest uppercase group-hover:text-primary transition-colors">Subconsciente</p>
+</div>
+<!-- Equilibrio -->
+<div class="glass-panel group p-8 rounded-3xl text-center hover:scale-[1.02] transition-all cursor-pointer border border-transparent hover:border-primary/40">
+<div class="w-16 h-16 mx-auto mb-4 p-2 bg-surface-container rounded-full flex items-center justify-center">
+<img alt="Equilibrio" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida/ADBb0uiee7znw0oW4_OAcz_f_cHN3bVaLXip3Cl1v9b0ygtmQ9hAxhtP-yUZAfcIRqO9_ORxyN1YNVaDyIP2nP-nx6wWgW3are2ig6LSzpEz7uBf8hqy0wiupkp87A8IlS-eHtkFDIGyP8Z02yY72rVV7p4hOwQEDNGhvLcyw6gFDi_HUCjSucUSQ8qag-G4odyImSR-AIs34I4T09V7zwVe71-RalT7sR6nnjnDhy6xnycTmKmaYSi9IJOQ1YI"/>
+</div>
+<p class="font-label-md text-label-md tracking-widest uppercase group-hover:text-primary transition-colors">Equilibrio</p>
+</div>
+<!-- Transformación -->
+<div class="glass-panel group p-8 rounded-3xl text-center hover:scale-[1.02] transition-all cursor-pointer border border-transparent hover:border-primary/40">
+<div class="w-16 h-16 mx-auto mb-4 p-2 bg-surface-container rounded-full flex items-center justify-center">
+<img alt="Transformación" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida/ADBb0ui6U5C4Nf6Gd50O8sdktUEZxURhLaMqtCbc9lgWPFzSNgPwbbxtY0HKWo-TU8sAsW9cdMY7xeTnVPEqXFuMD9_ubhJVve54ZXCDFJY1-aY12rrwztzJRTeTK7zsZDudSMuljikk4rzot0oxm9SIWJvDBSIqZOta23w1zXwnYhUEJ1aBWw8Z25wwM7g4jTfAYyGiuDM5e681MgSc6YNcARTKkaLMehbKqZE1mLjr7SQKkrMhJaV0MmYVO50I"/>
+</div>
+<p class="font-label-md text-label-md tracking-widest uppercase group-hover:text-primary transition-colors">Transformación</p>
+</div>
+</div>
+</section>
+<!-- Recommended Section -->
+<section class="max-w-6xl mx-auto">
+<h3 class="font-headline-lg text-headline-lg mb-8">Recomendado para ti</h3>
+<div class="grid grid-cols-3 gap-8">
+<!-- Card 1 -->
+<div class="glass-panel rounded-2xl overflow-hidden group hover:scale-[1.01] transition-all">
+<div class="relative h-56 overflow-hidden">
+<img alt="Sana tu Relación" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A serene cinematic image of a couple holding hands at sunset by a calm sea. The light is warm and golden, reflecting the luxury wellness palette of Hypnos Prime. The composition is artistic and minimalist, emphasizing the emotional connection and tranquility. Deep blacks in the shadows and glowing highlights create a mystical atmosphere of healing and relationship balance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRuJ8xrFm9yEzvOUKx_E15RuazGh9mn3pUvuoJbjT4-ydNCl4OIjIEtH2awdr5n4VpYp36MK8asI1IV1MRB_4GjgyU6V792T8y_PDp9HAi1SKJ9l0dI9Z1PdWJzj5P3qzImWTmxt7GCeySEXCu7bC6OXx5-lhHbU2Tf1i4HlH2Ym4BIPbGCEUjoAcMkdRSHk1nslJTC26KUPpCgwmsEHPeGP7bJgbKZYp4Jj_M5Uu1CBMaKLAESA3rOxRHlWS_fK8LGA9_p9AUrjzy"/>
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+</div>
+<div class="p-6">
+<div class="flex items-center gap-2 mb-2">
+<span class="text-[10px] text-primary border border-primary/40 px-2 rounded uppercase tracking-tighter">Equilibrio</span>
+<span class="text-[10px] text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">schedule</span> 20 min
+                            </span>
+</div>
+<h4 class="font-headline-sm text-headline-sm mb-1">Sana tu Relación</h4>
+<p class="font-label-md text-label-md text-on-surface-variant">Maestro Honorio Castillo</p>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="glass-panel rounded-2xl overflow-hidden group hover:scale-[1.01] transition-all">
+<div class="relative h-56 overflow-hidden">
+<img alt="Sueño Profundo" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A breathtaking night sky filled with nebulae and glowing stars, representing deep sleep and subconscious exploration. The colors are dominated by deep obsidian and shimmering gold stardust, perfectly aligning with the Hypnos Prime aesthetic. The mood is hypnotic and calming, evoking a sense of cosmic peace and profound mental rest. Artistic digital rendering of a celestial sanctuary." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0EJUPccjqRKq0qLwJv7m16jLeQmqUxgOVfW3m9wTGGTmMhu6S10yvs6Of06R3bOjQIkGJEyfkZidZVKk3pEmOktIqWyhZoKnlRsYmee8b0FUyOvR16iRxGNGXORtm2QyXL8ojJNvfawCsIUYqyosa542xz3V2dnT0op7KDqxaALL8gr-Nu3zgGnhI_O-Ag9ZyfXA9x8bY7ICs-Hn3YbZAbttf_lM2B8ozs7PP97EPT437rDabn6mpTkGeYoNXHU__z9DRGm6SxIms"/>
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+</div>
+<div class="p-6">
+<div class="flex items-center gap-2 mb-2">
+<span class="text-[10px] text-primary border border-primary/40 px-2 rounded uppercase tracking-tighter">Mente</span>
+<span class="text-[10px] text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">schedule</span> 45 min
+                            </span>
+</div>
+<h4 class="font-headline-sm text-headline-sm mb-1">Sueño Profundo</h4>
+<p class="font-label-md text-label-md text-on-surface-variant">Reprogramación nocturna</p>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="glass-panel rounded-2xl overflow-hidden group hover:scale-[1.01] transition-all">
+<div class="relative h-56 overflow-hidden">
+<img alt="Descubrimiento de Abundancia" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A mystical landscape featuring a golden sunrise over a mountain peak shrouded in soft mist. The imagery represents awakening and the realization of potential. Rich gold tones contrast with deep, matte black terrain. The atmosphere is majestic and inspiring, reinforcing the luxury wellness brand identity of Hypnos Prime. High-contrast landscape photography with a spiritual, high-tech feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnIAcvGzT9jNL39Ovy2fEfyKS7UfJavvqREQodDUakMMf1q2ZCxsbmhKLyvAu6uB260neHYPoIBreFFfX9rM9cbfgmMbAL2ebnb0RueIp7WyMzOs2Upp6sfG0ga9xIHvE6fDV2o3P4hANN4P46V6i0YS568BdYEFb734vSXsYbx_jChItydMSGX416gv-v_Q2gRmqVvVEg9M_bNr8-wskuTFVYvM1axOX96yg71mnZudEQF2tPdm-KYPQzl8-UATM_zN1znUlOyqUy"/>
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+</div>
+<div class="p-6">
+<div class="flex items-center gap-2 mb-2">
+<span class="text-[10px] text-primary border border-primary/40 px-2 rounded uppercase tracking-tighter">Transformación</span>
+<span class="text-[10px] text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">schedule</span> 30 min
+                            </span>
+</div>
+<h4 class="font-headline-sm text-headline-sm mb-1">Abundancia Infinita</h4>
+<p class="font-label-md text-label-md text-on-surface-variant">Maestro Honorio Castillo</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer / PlayerBar Shell -->
+<footer class="fixed bottom-0 left-64 right-0 h-24 flex items-center justify-between px-container-margin z-50 bg-surface-container-lowest border-t border-primary/20 shadow-[0_-20px_40px_rgba(212,175,55,0.05)]">
+<!-- Current Track Info -->
+<div class="flex items-center gap-4 w-1/3">
+<div class="w-14 h-14 rounded-lg overflow-hidden glass-panel flex-shrink-0">
+<img alt="Current Track" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAS5XYM8_caxXG76x5sMdokM9Mi_fa2WLTlShdKMEQ9SYN_iN_iiCFsXg4nRqC1yBxNgU7i6iUki0Q_mJTN0hwZKCwryKbJq7Y3Y0ZmxxdDDUNSMBhLtbiotV0CqGmMKPD6mWCwQAtWSBtt7RtnxSDG-PLswU5D9L847KBGHzEGjjNaqRcNcpCB4oOYYvPj9feHDPSTs8IBP8gUK6AnkXgEHYCMG39Txg5vwjPpYSnxCXuK4aTzLcmM75GJKCRekOaR1EntOpI5T6wH"/>
+</div>
+<div>
+<p class="font-body-md text-primary font-bold text-sm truncate">Reprogramación Subconsciente Profunda</p>
+<p class="font-label-md text-on-surface-variant text-[11px]">Maestro Honorio Castillo</p>
+</div>
+</div>
+<!-- Controls -->
+<div class="flex flex-col items-center gap-2 w-1/3">
+<div class="flex items-center gap-8">
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">shuffle</span>
+</button>
+<button class="text-on-surface hover:text-primary transition-colors">
+<span class="material-symbols-outlined">skip_previous</span>
+</button>
+<button class="w-12 h-12 rounded-full bg-primary text-on-primary flex items-center justify-center gold-glow hover:scale-105 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+<button class="text-on-surface hover:text-primary transition-colors">
+<span class="material-symbols-outlined">skip_next</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">repeat</span>
+</button>
+</div>
+<div class="w-full flex items-center gap-3">
+<span class="font-label-md text-[10px] text-on-surface-variant">12:45</span>
+<div class="flex-1 h-1 bg-surface-container rounded-full relative overflow-hidden">
+<div class="absolute left-0 top-0 h-full w-1/3 bg-primary gold-glow"></div>
+</div>
+<span class="font-label-md text-[10px] text-on-surface-variant">45:00</span>
+</div>
+</div>
+<!-- Extra Actions -->
+<div class="flex items-center justify-end gap-6 w-1/3 text-on-surface-variant">
+<button class="hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">lyrics</span>
+</button>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">volume_up</span>
+<div class="w-24 h-1 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full w-2/3 bg-primary"></div>
+</div>
+</div>
+<button class="hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">open_in_full</span>
+</button>
+</div>
+</footer>
+<!-- FAB: Contextual Play (Suppress if needed, here it matches the vibe) -->
+<button class="fixed bottom-32 right-12 w-16 h-16 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center gold-glow z-40 hover:scale-110 transition-transform md:hidden">
+<span class="material-symbols-outlined text-[32px]" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+</body></html>
