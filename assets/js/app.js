@@ -808,10 +808,12 @@ function triggerInstall() {
 
 // ---------- Bootstrap ----------
 function setupShell() {
-  // Welcome buttons
-  $('#enterBtn')?.addEventListener('click', () => { haptic(); location.hash = '#/home'; });
-  $('#registerBtn')?.addEventListener('click', () => { haptic(); location.hash = '#/home'; });
-  $('#forgotBtn')?.addEventListener('click', () => toast('Demo: recuperación deshabilitada'));
+  // Welcome — un solo CTA, no parece login
+  $('#enterBtn')?.addEventListener('click', () => {
+    haptic();
+    localStorage.setItem('hp_visited', '1');
+    location.hash = '#/home';
+  });
 
   // Bottom nav
   $$('.nav-btn').forEach(b => {
@@ -854,7 +856,12 @@ window.addEventListener('DOMContentLoaded', () => {
       sp.classList.add('splash-leave');
       setTimeout(() => sp.remove(), 700);
     }
-    route();
+    // Visitantes que regresan saltan welcome
+    if (!location.hash && localStorage.getItem('hp_visited')) {
+      location.hash = '#/home';
+    } else {
+      route();
+    }
   }, 900);
 
   // Register SW

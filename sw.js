@@ -1,5 +1,5 @@
 /* Hypnos Prime — Service Worker */
-const CACHE = 'hypnos-prime-v2';
+const CACHE = 'hypnos-prime-v3';
 const CORE = [
   './',
   './index.html',
